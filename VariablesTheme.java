@@ -107,5 +107,19 @@ public class VariablesTheme {
         System.out.println("Character code: " + (int) ch4 + ", corresponding character: " + ch4);
         System.out.println("Character code: " + (int) ch5 + ", corresponding character: " + ch5);
 
+        System.out.println("\n==Task 7: Duke's ASCII art console output==");
+        char underscore = '_';
+        char slash = '/';
+        char backslash = '\\';
+        char rightParenthesis = '(';
+        char leftParenthesis = ')';
+        System.out.println("    " + slash + backslash + "     ");
+        System.out.println("   " + slash + "  " + backslash + "      ");
+        System.out.println("  " + slash + underscore + rightParenthesis + " " + leftParenthesis
+         + backslash + "   ");
+        System.out.println(" " + slash + "      " + backslash + "  ");
+        System.out.println("" + slash + underscore + underscore + underscore + underscore + slash
+         + backslash + underscore + underscore + backslash + " ");
+
     }
 }
