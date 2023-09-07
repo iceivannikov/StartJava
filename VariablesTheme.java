@@ -22,9 +22,8 @@ public class VariablesTheme {
         System.out.println("Connecting to networks Wi‑Fi 6 " + wifi + " ax");
         System.out.println("Cable USB‑C/MagSafe 3 (2 " + meter + ")");
         System.out.println("Bluetooth 5.0 " + bluetooth);
-        System.out.println();
 
-        System.out.println("==Task 2: Calculation of the cost of goods with a discount==");
+        System.out.println("\n==Task 2: Calculation of the cost of goods with a discount==");
         int penPrice = 100;
         int bookPrice = 200;
         int discount = 11;
@@ -34,16 +33,14 @@ public class VariablesTheme {
             + ((totalPrice * discount) / 100));
         System.out.println("The total cost of the pen and the discounted book: " 
             + (totalPrice - ((totalPrice * discount)/100)));
-        System.out.println();
 
-        System.out.println("==Task 3: Output of the word JAVA==");
+        System.out.println("\n==Task 3: Output of the word JAVA==");
         System.out.println("   J    a  v     v  a     ");
         System.out.println("   J   a a  v   v  a a    ");
         System.out.println("J  J  aaaaa  V V  aaaaa   ");
         System.out.println(" JJ  a     a  V  a     a  ");
-        System.out.println();
 
-        System.out.println("==Task 4: Printing min and max values of integer numeric types==");
+        System.out.println("\n==Task 4: Printing min and max values of integer numeric types==");
         byte num1 = 127;
         short num2 = 32_767;
         int num3 = 2_147_483_647;
@@ -97,6 +94,18 @@ public class VariablesTheme {
         number1 ^= number2;
         System.out.println("New variable values: variable number1 = " + number1 
             + ", variable number2 = " + number2);
+
+        System.out.println("\n==Task 6: Output of characters and their codes==");
+        char ch1 = 36;
+        char ch2 = 42;
+        char ch3 = 64;
+        char ch4 = 124;
+        char ch5 = 126;
+        System.out.println("Character code: " + (int) ch1 + ", corresponding character: " + ch1);
+        System.out.println("Character code: " + (int) ch2 + ", corresponding character: " + ch2);
+        System.out.println("Character code: " + (int) ch3 + ", corresponding character: " + ch3);
+        System.out.println("Character code: " + (int) ch4 + ", corresponding character: " + ch4);
+        System.out.println("Character code: " + (int) ch5 + ", corresponding character: " + ch5);
 
     }
 }
