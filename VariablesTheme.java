@@ -43,5 +43,31 @@ public class VariablesTheme {
         System.out.println(" JJ  a     a  V  a     a  ");
         System.out.println();
 
+        System.out.println("==Task 4: Printing min and max values of integer numeric types==");
+        byte num1 = 127;
+        short num2 = 32_767;
+        int num3 = 2_147_483_647;
+        long num4 = 9_223_372_036_854_775_807L;
+        System.out.println("Maximum value of type byte: " + num1);
+        System.out.println("Value increased by one: " + ++num1);
+        num1--;
+        System.out.println("Value minus one: " + --num1);
+        System.out.println();
+        System.out.println("Maximum value of type short: " + num2);
+        System.out.println("Value increased by one: " + ++num2);
+        num2--;
+        System.out.println("Value minus one: " + --num2);
+        System.out.println();
+        System.out.println("Maximum value of type int: " + num3);
+        System.out.println("Value increased by one: " + ++num3);
+        num3--;
+        System.out.println("Value minus one: " + --num3);
+        System.out.println();
+        System.out.println("Maximum value of type long: " + num4);
+        System.out.println("Value increased by one: " + ++num4);
+        num4--;
+        System.out.println("Value minus one: " + --num4);
+        System.out.println();
+
     }
 }
