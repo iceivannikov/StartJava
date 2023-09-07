@@ -69,5 +69,34 @@ public class VariablesTheme {
         System.out.println("Value minus one: " + --num4);
         System.out.println();
 
+        System.out.println("==Task 5: Rearranging Variable Values==");
+        int number1 = 2;
+        int number2 = 5;
+        System.out.println("\nVariable number1 = " + number1 + ", variable number2 = " + number2);
+        System.out.println("\nChange the values of these variables using the third variable");
+        System.out.println("Initial values of variables: variable number1 = " + 
+            number1 + ", variable number2 = " + number2);
+        int temp = number1;
+        number1 = number2;
+        number2 = temp;
+        System.out.println("New variable values: Variable number1 = " + number1 
+            + ", variable number2 = " + number2);
+        System.out.println("\nRearranging variable values using arithmetic operations");
+        System.out.println("Initial values of variables: variable number1 = " + 
+            number1 + ", variable number2 = " + number2);
+        int difference = number1 - number2;
+        number1 -= difference;
+        number2 += difference;
+        System.out.println("New variable values: variable number1 = " + number1 
+            + ", variable number2 = " + number2);
+        System.out.println("\nRearranging variable values using the bitwise operation ^");
+        System.out.println("Initial values of variables: variable number1 = " + 
+            number1 + ", variable number2 = " + number2);
+        number1 ^= number2;
+        number2 ^= number1;
+        number1 ^= number2;
+        System.out.println("New variable values: variable number1 = " + number1 
+            + ", variable number2 = " + number2);
+
     }
 }
