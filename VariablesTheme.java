@@ -36,6 +36,12 @@ public class VariablesTheme {
             + (totalPrice - ((totalPrice * discount)/100)));
         System.out.println();
 
+        System.out.println("==Task 3: Output of the word JAVA==");
+        System.out.println("   J    a  v     v  a     ");
+        System.out.println("   J   a a  v   v  a a    ");
+        System.out.println("J  J  aaaaa  V V  aaaaa   ");
+        System.out.println(" JJ  a     a  V  a     a  ");
+        System.out.println();
 
     }
 }
