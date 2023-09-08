@@ -121,5 +121,24 @@ public class VariablesTheme {
         System.out.println("" + slash + underscore + underscore + underscore + underscore + slash
          + backslash + underscore + underscore + backslash + " ");
 
+        System.out.println("\n==Task 8: Outputting the number of hundreds" + 
+            ", tens and units of a number==");
+        int number10 = 357;
+        System.out.println("Number " + number10 + " contains:");
+        int hundred = number10 / 100;
+        System.out.println("hundred - " + hundred);
+        int tens = number10 / 10;
+        System.out.println("tens - " + tens);
+        int units = number10 / 1;
+        System.out.println("units - " + units);
+        int firstNum = number10 % 10;
+        int secondNum = ((number10 / 10) % 10);
+        int thirdNum = ((number10 / 100) % 10);
+        System.out.println(firstNum);
+        System.out.println(secondNum);
+        System.out.println(thirdNum);
+        System.out.println("Sum of digits: " + (firstNum + secondNum + thirdNum));
+        System.out.println("Multiplication: " + (firstNum * secondNum * thirdNum));
+
     }
 }
