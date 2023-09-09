@@ -16,7 +16,7 @@ public class VariablesTheme {
         boolean isBluetooth = true;
         System.out.println("\nModel: " + model);
         System.out.println("Update frequency: " + updateFrequency);
-        System.out.println("Storage: " + 1 + " Gb");
+        System.out.println("Storage: " + storage + " Gb");
         System.out.println("Memory: " + memory + " Gb");
         System.out.println("Camera FaceTime HD " + camera + "p");
         System.out.println("Connecting to networks Wi‑Fi 6 " + wifi + " ax");
@@ -28,80 +28,79 @@ public class VariablesTheme {
         int bookPrice = 200;
         int discount = 11;
         int totalPrice = penPrice + bookPrice;
+        int discountedPrice = totalPrice * discount / 100;
         System.out.println("\nTotal cost of pen and book: " + totalPrice);
         System.out.println("The amount of the discount when buying a pen and a book is " 
-                + ((totalPrice * discount) / 100));
+                + discountedPrice);
         System.out.println("The total cost of the pen and the discounted book: " 
-                + (totalPrice - ((totalPrice * discount) / 100)));
+                + (totalPrice - discountedPrice));
 
         System.out.println("\n==Task 3: Output of the word JAVA==");
-        System.out.println("\n   J    a  v     v  a     ");
-        System.out.println("   J   a a  v   v  a a    ");
-        System.out.println("J  J  aaaaa  V V  aaaaa   ");
-        System.out.println(" JJ  a     a  V  a     a  ");
+        System.out.println("\n   J    a  v     v  a     \n" +
+                           "   J   a a  v   v  a a    \n" +
+                           "J  J  aaaaa  V V  aaaaa   \n" +
+                           " JJ  a     a  V  a     a  ");
 
         System.out.println("\n==Task 4: Printing min and max values of integer numeric types==");
-        byte num1 = 127;
-        short num2 = 32_767;
-        int num3 = 2_147_483_647;
-        long num4 = 9_223_372_036_854_775_807L;
-        System.out.println("\nMaximum value of type byte: " + num1);
-        System.out.println("Value increased by one: " + ++num1);
-        num1--;
-        System.out.println("Value minus one: " + --num1);
-        System.out.println("\nMaximum value of type short: " + num2);
-        System.out.println("Value increased by one: " + ++num2);
-        num2--;
-        System.out.println("Value minus one: " + --num2);
-        System.out.println("\nMaximum value of type int: " + num3);
-        System.out.println("Value increased by one: " + ++num3);
-        num3--;
-        System.out.println("Value minus one: " + --num3);
-        System.out.println("\nMaximum value of type long: " + num4);
-        System.out.println("Value increased by one: " + ++num4);
-        num4--;
-        System.out.println("Value minus one: " + --num4);
+        byte byteMaxValue = 127;
+        short shortNaxValue = 32_767;
+        int intMaxValue = 2_147_483_647;
+        long longMaxValue = 9_223_372_036_854_775_807L;
+        System.out.println("\nMaximum value of type byte: " + byteMaxValue);
+        System.out.println("Value increased by one: " + ++byteMaxValue);
+        System.out.println("Value minus one: " + --byteMaxValue);
+        System.out.println("\nMaximum value of type short: " + shortNaxValue);
+        System.out.println("Value increased by one: " + ++shortNaxValue);
+        System.out.println("Value minus one: " + --shortNaxValue);
+        System.out.println("\nMaximum value of type int: " + intMaxValue);
+        System.out.println("Value increased by one: " + ++intMaxValue);
+        System.out.println("Value minus one: " + --intMaxValue);
+        System.out.println("\nMaximum value of type long: " + longMaxValue);
+        System.out.println("Value increased by one: " + ++longMaxValue);
+        System.out.println("Value minus one: " + --longMaxValue);
 
         System.out.println("\n==Task 5: Rearranging Variable Values==");
-        int number1 = 2;
-        int number2 = 5;
-        System.out.println("\nVariable number1 = " + number1 + ", variable number2 = " + number2);
+        int a = 2;
+        int b = 5;
+        System.out.println("\nVariable a = " + a + ", variable b = " + b);
         System.out.println("\nChange the values of these variables using the third variable");
-        System.out.println("Initial values of variables: variable number1 = " + 
-                number1 + ", variable number2 = " + number2);
-        int temp = number1;
-        number1 = number2;
-        number2 = temp;
-        System.out.println("New variable values: Variable number1 = " + number1 
-                + ", variable number2 = " + number2);
+        System.out.println("Initial values of variables: variable a = " + 
+                a + ", variable b = " + b);
+        int tmp = a;
+        a = b;
+        b = tmp;
+        System.out.println("New variable values: Variable a = " + a + ", variable b = " + b);
         System.out.println("\nRearranging variable values using arithmetic operations");
-        System.out.println("Initial values of variables: variable number1 = " + 
-                number1 + ", variable number2 = " + number2);
-        int difference = number1 - number2;
-        number1 -= difference;
-        number2 += difference;
-        System.out.println("New variable values: variable number1 = " + number1 
-                + ", variable number2 = " + number2);
+        System.out.println("Initial values of variables: variable a = " + 
+                a + ", variable b = " + b);
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        System.out.println("New variable values: variable a = " + a + ", variable b = " + b);
         System.out.println("\nRearranging variable values using the bitwise operation ^");
-        System.out.println("Initial values of variables: variable number1 = " + 
-                number1 + ", variable number2 = " + number2);
-        number1 ^= number2;
-        number2 ^= number1;
-        number1 ^= number2;
-        System.out.println("New variable values: variable number1 = " + number1 
-                + ", variable number2 = " + number2);
+        System.out.println("Initial values of variables: variable a = " + 
+                a + ", variable b = " + b);
+        a ^= b;
+        b ^= a;
+        a ^= b;
+        System.out.println("New variable values: variable a = " + a + ", variable b = " + b);
 
         System.out.println("\n==Task 6: Output of characters and their codes==");
-        char ch1 = 36;
-        char ch2 = 42;
-        char ch3 = 64;
-        char ch4 = 124;
-        char ch5 = 126;
-        System.out.println("\nCharacter code: " + (int) ch1 + ", corresponding character: " + ch1);
-        System.out.println("Character code: " + (int) ch2 + ", corresponding character: " + ch2);
-        System.out.println("Character code: " + (int) ch3 + ", corresponding character: " + ch3);
-        System.out.println("Character code: " + (int) ch4 + ", corresponding character: " + ch4);
-        System.out.println("Character code: " + (int) ch5 + ", corresponding character: " + ch5);
+        char dollar = 36;
+        char asterisk = 42;
+        char atSign = 64;
+        char verticalBar = 124;
+        char tilde = 126;
+        System.out.println("\nCharacter code: " + (int) dollar + 
+                ", corresponding character: " + dollar);
+        System.out.println("Character code: " + (int) asterisk + 
+                ", corresponding character: " + asterisk);
+        System.out.println("Character code: " + (int) atSign + 
+                ", corresponding character: " + atSign);
+        System.out.println("Character code: " + (int) verticalBar + 
+                ", corresponding character: " + verticalBar);
+        System.out.println("Character code: " + (int) tilde + 
+                ", corresponding character: " + tilde);
 
         System.out.println("\n==Task 7: Duke's ASCII art console output==");
         char underscore = '_';
@@ -109,37 +108,35 @@ public class VariablesTheme {
         char backslash = '\\';
         char rightParenthesis = '(';
         char leftParenthesis = ')';
-        System.out.println("\n    " + slash + backslash + "     ");
-        System.out.println("   " + slash + "  " + backslash + "      ");
-        System.out.println("  " + slash + underscore + rightParenthesis + " " + leftParenthesis
-                + backslash + "   ");
-        System.out.println(" " + slash + "      " + backslash + "  ");
+        System.out.println("\n    " + slash + backslash);
+        System.out.println("   " + slash + "  " + backslash);
+        System.out.println("  " + slash + underscore + rightParenthesis 
+                + " " + leftParenthesis + backslash);
+        System.out.println(" " + slash + "      " + backslash);
         System.out.println("" + slash + underscore + underscore + underscore + underscore + slash
-                + backslash + underscore + underscore + backslash + " ");
+                + backslash + underscore + underscore + backslash);
 
         System.out.println("\n==Task 8: Outputting the number of hundreds" + 
                 ", tens and units of a number==");
-        int number10 = 123;
-        System.out.println("\nNumber " + number10 + " contains:");
-        int hundred = number10 / 100;
-        System.out.println("hundred:" + hundred);
-        int tens = number10 / 10;
+        int number = 123;
+        System.out.println("\nNumber " + number + " contains:");
+        int hundred = number / 100;
+        System.out.println("hundred: " + hundred);
+        int tens = number / 10 % 10;
         System.out.println("tens: " + tens);
-        int units = number10 / 1;
-        System.out.println("units: " + units);
-        int firstNum = number10 % 10;
-        int secondNum = ((number10 / 10) % 10);
-        int thirdNum = ((number10 / 100) % 10);
-        System.out.println("Sum of digits: " + (firstNum + secondNum + thirdNum));
-        System.out.println("Multiplication: " + (firstNum * secondNum * thirdNum));
+        int ones = number % 10;
+        System.out.println("ones: " + ones);
+        int sum = hundred + tens + ones;
+        int multiplication = hundred * tens * ones;
+        System.out.println("Sum of digits: " + sum);
+        System.out.println("Multiplication: " + multiplication);
 
         System.out.println("\n==Task 9: Time output==\n");
         int timeInSeconds = 86399;
-        int hours = timeInSeconds / 3600;
-        int minutes = timeInSeconds / 60 % 60;
-        int seconds = timeInSeconds / 1 % 60;
-        System.out.println(hours + ":" + minutes + ":" + seconds);
-        System.out.println(String.format("%02d:%02d:%02d", hours, minutes, seconds));
+        int hh = timeInSeconds / 3600;
+        int mm = timeInSeconds / 60 % 60;
+        int ss = timeInSeconds % 60;
+        System.out.println(hh + ":" + mm + ":" + ss);
 
     }
 }
