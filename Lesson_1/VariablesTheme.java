@@ -28,36 +28,35 @@ public class VariablesTheme {
         int bookPrice = 200;
         int discount = 11;
         int totalPrice = penPrice + bookPrice;
-        int discountedPrice = totalPrice * discount / 100;
-        System.out.println("\nTotal cost of pen and book: " + totalPrice);
-        System.out.println("The amount of the discount when buying a pen and a book is " 
-                + discountedPrice);
-        System.out.println("The total cost of the pen and the discounted book: " 
-                + (totalPrice - discountedPrice));
+        int discounted = totalPrice * discount / 100;
+        System.out.println("\nTotal cost : " + totalPrice);
+        System.out.println("Amount of the discount " + discounted);
+        System.out.println("Total price with discount: " + (totalPrice - discounted));
 
         System.out.println("\n==Task 3: Output of the word JAVA==");
-        System.out.println("\n   J    a  v     v  a     \n" +
-                           "   J   a a  v   v  a a    \n" +
-                           "J  J  aaaaa  V V  aaaaa   \n" +
-                           " JJ  a     a  V  a     a  ");
+        System.out.println(
+                "\n   J    a  v     v  a     \n" +
+                "   J   a a  v   v  a a    \n" +
+                "J  J  aaaaa  V V  aaaaa   \n" +
+                " JJ  a     a  V  a     a  ");
 
         System.out.println("\n==Task 4: Printing min and max values of integer numeric types==");
-        byte byteMaxValue = 127;
-        short shortNaxValue = 32_767;
-        int intMaxValue = 2_147_483_647;
-        long longMaxValue = 9_223_372_036_854_775_807L;
-        System.out.println("\nMaximum value of type byte: " + byteMaxValue);
-        System.out.println("Value increased by one: " + ++byteMaxValue);
-        System.out.println("Value minus one: " + --byteMaxValue);
-        System.out.println("\nMaximum value of type short: " + shortNaxValue);
-        System.out.println("Value increased by one: " + ++shortNaxValue);
-        System.out.println("Value minus one: " + --shortNaxValue);
-        System.out.println("\nMaximum value of type int: " + intMaxValue);
-        System.out.println("Value increased by one: " + ++intMaxValue);
-        System.out.println("Value minus one: " + --intMaxValue);
-        System.out.println("\nMaximum value of type long: " + longMaxValue);
-        System.out.println("Value increased by one: " + ++longMaxValue);
-        System.out.println("Value minus one: " + --longMaxValue);
+        byte byteMax = 127;
+        short shortMax = 32_767;
+        int intMax = 2_147_483_647;
+        long longMax = 9_223_372_036_854_775_807L;
+        System.out.println("\nMaximum value of type byte: " + byteMax);
+        System.out.println("Value increased by one: " + ++byteMax);
+        System.out.println("Value minus one: " + --byteMax);
+        System.out.println("\nMaximum value of type short: " + shortMax);
+        System.out.println("Value increased by one: " + ++shortMax);
+        System.out.println("Value minus one: " + --shortMax);
+        System.out.println("\nMaximum value of type int: " + intMax);
+        System.out.println("Value increased by one: " + ++intMax);
+        System.out.println("Value minus one: " + --intMax);
+        System.out.println("\nMaximum value of type long: " + longMax);
+        System.out.println("Value increased by one: " + ++longMax);
+        System.out.println("Value minus one: " + --longMax);
 
         System.out.println("\n==Task 5: Rearranging Variable Values==");
         int a = 2;
@@ -73,9 +72,9 @@ public class VariablesTheme {
         System.out.println("\nRearranging variable values using arithmetic operations");
         System.out.println("Initial values of variables: variable a = " + 
                 a + ", variable b = " + b);
-        a = a + b;
+        a += b;
         b = a - b;
-        a = a - b;
+        a -= b;
         System.out.println("New variable values: variable a = " + a + ", variable b = " + b);
         System.out.println("\nRearranging variable values using the bitwise operation ^");
         System.out.println("Initial values of variables: variable a = " + 
@@ -86,11 +85,11 @@ public class VariablesTheme {
         System.out.println("New variable values: variable a = " + a + ", variable b = " + b);
 
         System.out.println("\n==Task 6: Output of characters and their codes==");
-        char dollar = 36;
-        char asterisk = 42;
-        char atSign = 64;
-        char verticalBar = 124;
-        char tilde = 126;
+        char dollar = '$';
+        char asterisk = '*';
+        char atSign = '@';
+        char verticalBar = '|';
+        char tilde = '~';
         System.out.println("\nCharacter code: " + (int) dollar + 
                 ", corresponding character: " + dollar);
         System.out.println("Character code: " + (int) asterisk + 
@@ -119,15 +118,15 @@ public class VariablesTheme {
         System.out.println("\n==Task 8: Outputting the number of hundreds" + 
                 ", tens and units of a number==");
         int number = 123;
-        System.out.println("\nNumber " + number + " contains:");
-        int hundred = number / 100;
-        System.out.println("hundred: " + hundred);
+        int hundreds = number / 100;
         int tens = number / 10 % 10;
-        System.out.println("tens: " + tens);
         int ones = number % 10;
+        int sum = hundreds + tens + ones;
+        int multiplication = hundreds * tens * ones;
+        System.out.println("\nNumber " + number + " contains:");
+        System.out.println("hundred: " + hundreds);
+        System.out.println("tens: " + tens);
         System.out.println("ones: " + ones);
-        int sum = hundred + tens + ones;
-        int multiplication = hundred * tens * ones;
         System.out.println("Sum of digits: " + sum);
         System.out.println("Multiplication: " + multiplication);
 
@@ -137,6 +136,5 @@ public class VariablesTheme {
         int mm = timeInSeconds / 60 % 60;
         int ss = timeInSeconds % 60;
         System.out.println(hh + ":" + mm + ":" + ss);
-
     }
 }
