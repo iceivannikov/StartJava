@@ -28,17 +28,14 @@ public class VariablesTheme {
         int bookPrice = 200;
         int discount = 11;
         int totalPrice = penPrice + bookPrice;
-        int discounted = totalPrice * discount / 100;
+        int discountPrice = totalPrice * discount / 100;
         System.out.println("\nTotal cost : " + totalPrice);
-        System.out.println("Amount of the discount " + discounted);
-        System.out.println("Total price with discount: " + (totalPrice - discounted));
+        System.out.println("Amount of the discount " + discountPrice);
+        System.out.println("Total price with discount: " + (totalPrice - discountPrice));
 
         System.out.println("\n==Task 3: Output of the word JAVA==");
-        System.out.println(
-                "\n   J    a  v     v  a     \n" +
-                "   J   a a  v   v  a a    \n" +
-                "J  J  aaaaa  V V  aaaaa   \n" +
-                " JJ  a     a  V  a     a  ");
+        System.out.println("\n   J    a  v     v  a     \n" + "   J   a a  v   v  a a    \n" +
+                "J  J  aaaaa  V V  aaaaa   \n" + " JJ  a     a  V  a     a  ");
 
         System.out.println("\n==Task 4: Printing min and max values of integer numeric types==");
         byte byteMax = 127;
