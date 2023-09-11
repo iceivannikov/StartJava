@@ -101,6 +101,15 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n==Task 5: Determining a symbol by its code==\n");
-        
+        char ch = '\u0031';
+        if (ch >= 97 && ch <= 122) {
+            System.out.println("Symbol " + ch + " is a small letter");
+        } else if (ch >= 65 && ch <= 90) {
+            System.out.println("Symbol " + ch + " is a capital letter");
+        } else if (ch >= 48 && ch <= 57) {
+            System.out.println("Symbol " + ch + " is a number");
+        } else {
+            System.out.println("Symbol " + ch + " is not a number or letter");
+        }
     }
 }
