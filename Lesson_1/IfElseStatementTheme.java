@@ -32,5 +32,15 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("No suitable options\n");
         }
+
+        System.out.println("==Task 2: Search for more number==\n");
+        int a = 5, b = 10;
+        if (a < b) {
+            System.out.println("a less b");
+        } else if (a > b) {
+            System.out.println("a larger b");
+        } else {
+            System.out.println("a equals b");
+        }
     }
 }
