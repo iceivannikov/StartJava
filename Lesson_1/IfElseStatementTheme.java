@@ -42,5 +42,19 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("a equals b");
         }
+
+        System.out.println("\n==Task 3: Checking the number==\n");
+        int x = 0;
+        if (x == 0) {
+            System.out.println("The number is zero");
+        } else if (x < 0 && x % 2 ==0) {
+            System.out.println("Number " + x + " is negative and even");
+        } else if (x < 0 && x % 2 !=0) {
+            System.out.println("Number " + x + " is negative and odd");
+        } else if (x > 0 && x % 2 ==0) {
+            System.out.println("Number " + x + " is positive and even");
+        } else {
+            System.out.println("Number " + x + " is positive and odd");
+        }
     }
 }
