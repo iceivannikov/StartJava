@@ -111,5 +111,22 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Symbol " + ch + " is not a number or letter");
         }
+
+        System.out.println("\n==Task 6: Calculation of the deposit amount and interest" +
+            " accrued by the bank==\n");
+        int depositAmount = 301_000;
+        if (depositAmount < 100_000) {
+            System.out.println("Deposit amount: " + depositAmount + 
+                ", amount of accrued interest: " + (depositAmount / 100 * 5) + 
+                ", total amount with interest: " + (depositAmount + (depositAmount / 100 * 5)));
+        } else if (depositAmount >= 100_000 && depositAmount <= 300_000) {
+            System.out.println("Deposit amount: " + depositAmount + 
+                ", amount of accrued interest: " + (depositAmount / 100 * 7) + 
+                ", total amount with interest: " + (depositAmount + (depositAmount / 100 * 7)));
+        } else if (depositAmount > 300_000) {
+            System.out.println("Deposit amount: " + depositAmount + 
+                ", amount of accrued interest: " + (depositAmount / 100 * 10) + 
+                ", total amount with interest: " + (depositAmount + (depositAmount / 100 * 10)));
+        }
     }
 }
