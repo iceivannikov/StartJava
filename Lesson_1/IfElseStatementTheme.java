@@ -160,5 +160,16 @@ public class IfElseStatementTheme {
         System.out.println("Average percentage by subject: " + averagePercentage);
 
         System.out.println("\n==Task 8: Calculation of annual profit==\n");
+        int salesPerMonth = 14_000;
+        int rent = 5_000;
+        int productionCost = 9_000;
+        int profit = (salesPerMonth * 12) - ((rent * 12) + (productionCost * 12));
+        if (profit > 0) {
+            System.out.println("Profit for the year: +" + profit);
+        } else if (profit < 0) {
+            System.out.println("Profit for the year: " + profit);
+        } else {
+            System.out.println("Profit for the year: " + profit);
+        }
     }
 }
