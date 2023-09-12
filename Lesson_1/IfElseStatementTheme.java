@@ -128,5 +128,37 @@ public class IfElseStatementTheme {
                 ", amount of accrued interest: " + (depositAmount / 100 * 10) + 
                 ", total amount with interest: " + (depositAmount + (depositAmount / 100 * 10)));
         }
+
+        System.out.println("\n==Task 7: Determining grades by subject==\n");
+        int historyPercentage = 59;
+        int programmingPercentage = 91;
+        int historyGrade = 0;
+        int programmingGrade = 0;
+        if (historyPercentage <= 60) {
+            historyGrade = 2;
+        } else if (historyPercentage > 60 && historyPercentage <= 73) {
+            historyGrade = 3;
+        } else if (historyPercentage > 73 && historyPercentage <=91) {
+            historyGrade = 4;
+        } else if (historyPercentage > 91) {
+            historyGrade = 5;
+        }
+        if (programmingPercentage <= 60) {
+            programmingGrade = 2;
+        } else if (programmingPercentage > 60 && programmingPercentage <= 73) {
+            programmingGrade = 3;
+        } else if (programmingPercentage > 73 && programmingPercentage <=91) {
+            programmingGrade = 4;
+        } else if (programmingPercentage > 91) {
+            programmingGrade = 5;
+        }
+        int averageGrades = (historyGrade + programmingGrade) / 2;
+        int averagePercentage = (historyPercentage + programmingPercentage) / 2;
+        System.out.println("History grade: " + historyGrade);
+        System.out.println("Programming grade: " + programmingGrade);
+        System.out.println("Average grades in subjects: " + averageGrades);
+        System.out.println("Average percentage by subject: " + averagePercentage);
+
+        System.out.println("\n==Task 8: Calculation of annual profit==\n");
     }
 }
