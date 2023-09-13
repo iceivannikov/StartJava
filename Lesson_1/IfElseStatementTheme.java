@@ -1,7 +1,7 @@
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
-        System.out.println("\n==Task 1: Translating pseudocode into Java==\n");
+        System.out.println("\n==Task 1: Translating pseudocode into Java==");
         boolean isMale = true;
         if (!isMale) {
             System.out.println("female");
@@ -23,18 +23,18 @@ public class IfElseStatementTheme {
             System.out.println("height less 1.8");
         }
 
-        String name = "Maksim";
-        char firstLetterOfName = name.charAt(0);
-        if (firstLetterOfName == 'M') {
+        char firstLetterName = "Maksim".charAt(0);
+        if (firstLetterName == 'M') {
             System.out.println("First letter of name - M");
-        } else if (firstLetterOfName == 'I') {
+        } else if (firstLetterName == 'I') {
             System.out.println("First letter of name - I");
         } else {
             System.out.println("No suitable options");
         }
 
-        System.out.println("\n==Task 2: Search for more number==\n");
-        int a = 5, b = 10;
+        System.out.println("\n==Task 2: Search for more number==");
+        int a = 5; 
+        int b = 10;
         if (a < b) {
             System.out.println("a less b");
         } else if (a > b) {
@@ -43,77 +43,65 @@ public class IfElseStatementTheme {
             System.out.println("a equals b");
         }
 
-        System.out.println("\n==Task 3: Checking the number==\n");
-        int x = 0;
-        if (x == 0) {
+        System.out.println("\n==Task 3: Checking the number==");
+        int num = 1;
+        boolean lessZero = num < 0;
+        boolean aboveZero = num > 0;
+        boolean even = num % 2 ==0;
+        boolean odd = num % 2 !=0;
+        String number = "Number ";
+        String negative = " is negative";
+        String positive = " is positive";
+        String andEven = " and even";
+        String andOdd = " and odd";
+        if (num == 0) {
             System.out.println("The number is zero");
-        }
-        if (x < 0 && x % 2 ==0) {
-            System.out.println("Number " + x + " is negative and even");
-        } else if (x < 0 && x % 2 !=0) {
-            System.out.println("Number " + x + " is negative and odd");
-        } else if (x > 0 && x % 2 ==0) {
-            System.out.println("Number " + x + " is positive and even");
+        } else if (lessZero && even) {
+            System.out.println(number + num + negative + andEven);
+        } else if (lessZero && odd) {
+            System.out.println(number + num + negative + andOdd);
+        } else if (aboveZero&& even) {
+            System.out.println(number + num + positive + andEven);
         } else {
-            System.out.println("Number " + x + " is positive and odd");
+            System.out.println(number + num + positive + andOdd);
         }
 
-        System.out.println("\n==Task 4: Finding the same digits in numbers==\n");
-        int c = 153, d = 443;
+        System.out.println("\n==Task 4: Finding the same digits in numbers==");
+        int c = 152; 
+        int d = 443;
         int hundredsC = c / 100;
         int hundredsD = d / 100;
         int tensC = c / 10 % 10;
         int tensD = d / 10 % 10;
         int onesC = c % 10;
         int onesD = d % 10;
-        int hundreds = 3;
-        int tens = 2;
-        int ones = 1;
         if (hundredsC != hundredsD && tensC != tensD && onesC != onesD) {
             System.out.println("The numbers in the digits are different");
-        }
-        if (hundredsC == hundredsD && tensC == tensD && onesC == onesD) {
-            System.out.println("Numbers " + c + " " + d + " have the same digits " + hundredsC  + 
-                " and " + hundredsD + ", place number " + hundreds + ", " + tensC + " and " + tensD
-                + ", place number " + tens + ", " + onesC + " and " + onesD + ", place number " +
-                ones);
-        } else if (hundredsC == hundredsD && tensC == tensD) {
-            System.out.println("Numbers " + c + " " + d + " have the same digits " + hundredsC + 
-                " and " + hundredsD + ", place number " + hundreds + ", " + tensC + " and " + tensD
-                + ", place number " + tens);
-        } else if (tensC == tensD && onesC == onesD) {
-            System.out.println("Numbers " + c + " " + d + " have the same digits " + tensC + 
-                " and " + tensD + ", place number " + tens + ", " + onesC + " and " + onesD + 
-                ", place number " + ones);
-        } else if (hundredsC == hundredsD && onesC == onesD) {
-            System.out.println("Numbers " + c + " " + d + " have the same digits " + hundredsC  + 
-                " and " + hundredsD + ", place number " + hundreds + ", " + onesC + " and " + 
-                onesD + ", place number " + ones);
         } else if (hundredsC == hundredsD) {
-            System.out.println("Numbers " + c + " " + d + " have the same digits " + hundredsC + 
-                " and " + hundredsD + ", place number " + hundreds);
+            System.out.println("Numbers " + c + " " + d + " have the same digits " + hundredsC  + 
+                " and " + hundredsD + ", place number " + hundredsC);
         } else if (tensC == tensD) {
             System.out.println("Numbers " + c + " " + d + " have the same digits " + tensC + 
-                " and " + tensD + ", place number " + tens);
+                " and " + tensD + ", place number " + tensC);
         } else if (onesC == onesD) {
             System.out.println("Numbers " + c + " " + d + " have the same digits " + onesC + 
-                " and " + onesD + ", place number " + ones);
-        }
+                " and " + onesD + ", place number " + onesC);
+        } 
 
-        System.out.println("\n==Task 5: Determining a symbol by its code==\n");
-        char ch = '\u0031';
-        if (ch >= 97 && ch <= 122) {
-            System.out.println("Symbol " + ch + " is a small letter");
-        } else if (ch >= 65 && ch <= 90) {
-            System.out.println("Symbol " + ch + " is a capital letter");
-        } else if (ch >= 48 && ch <= 57) {
-            System.out.println("Symbol " + ch + " is a number");
+        System.out.println("\n==Task 5: Determining a symbol by its code==");
+        char symbol = '1';
+        if (symbol >= 97 && symbol <= 122) {
+            System.out.println("Symbol " + symbol + " is a small letter");
+        } else if (symbol >= 65 && symbol <= 90) {
+            System.out.println("Symbol " + symbol + " is a capital letter");
+        } else if (symbol >= 48 && symbol <= 57) {
+            System.out.println("Symbol " + symbol + " is a number");
         } else {
-            System.out.println("Symbol " + ch + " is not a number or letter");
+            System.out.println("Symbol " + symbol + " is not a number or letter");
         }
 
         System.out.println("\n==Task 6: Calculation of the deposit amount and interest" +
-            " accrued by the bank==\n");
+            " accrued by the bank==");
         int depositAmount = 301_000;
         if (depositAmount < 100_000) {
             System.out.println("Deposit amount: " + depositAmount + 
@@ -129,7 +117,7 @@ public class IfElseStatementTheme {
                 ", total amount with interest: " + (depositAmount + (depositAmount / 100 * 10)));
         }
 
-        System.out.println("\n==Task 7: Determining grades by subject==\n");
+        System.out.println("\n==Task 7: Determining grades by subject==");
         int historyPercentage = 59;
         int programmingPercentage = 91;
         int historyGrade = 0;
@@ -159,7 +147,7 @@ public class IfElseStatementTheme {
         System.out.println("Average grades in subjects: " + averageGrades);
         System.out.println("Average percentage by subject: " + averagePercentage);
 
-        System.out.println("\n==Task 8: Calculation of annual profit==\n");
+        System.out.println("\n==Task 8: Calculation of annual profit==");
         int salesPerMonth = 14_000;
         int rent = 5_000;
         int productionCost = 9_000;
