@@ -54,7 +54,7 @@ public class IfElseStatementTheme {
             } else {
                 System.out.print("negative ");
             }
-            if (num % 2 ==0) {
+            if (num % 2 == 0) {
                 System.out.println("and even");
             } else {
                 System.out.println("and odd");
@@ -140,7 +140,7 @@ public class IfElseStatementTheme {
         int salesPerMonth = 14_000;
         int rent = 5_000;
         int productionCost = 9_000;
-        int profit = ((salesPerMonth - rent - productionCost) * 12);
+        int profit = (salesPerMonth - rent - productionCost) * 12;
         if (profit > 0) {
             System.out.println("Profit for the year: +" + profit);
         } else {
