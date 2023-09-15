@@ -41,5 +41,18 @@ public class CyclesTheme {
         for (int j = min; j <= max; j++) {
             System.out.print(j);
         }
+
+        System.out.println("\n\n==Task 3 Printing the reverse number and the sum of its digits==");
+        int num = 1234;
+        int sum = 0;
+        int k = 4;
+        while (k > 0) {
+            int tmp = num % 10;
+            sum += tmp;
+            System.out.print(tmp);
+            num /= 10;
+            k--;
+        }
+        System.out.println("\n" + sum);
     }
 }
