@@ -17,5 +17,29 @@ public class CyclesTheme {
         } while (i <= finish);
         System.out.println("In the segment [" + start + ", " + finish + "]" + 
                 ", the sum of even numbers = " + x + ", and the sum of odd numbers = " + y);
+
+        System.out.println("\n==Task 2 Display numbers in descending order==");
+        int num1 = 10;
+        int num2 = 5;
+        int num3 = -1;
+        int max = 0;
+        int min = 0;
+        if (num3 > num1 && num1 < num2) {
+            min = num1;
+        } else if (num1 > num3 && num3 < num2) {
+            min = num3;
+        } else if (num1 > num2 && num2 < num3) {
+            min = num2;
+        }
+        if (num3 < num1 && num1 > num2) {
+            max = num1;
+        } else if (num1 < num3 && num3 > num2) {
+            max = num3;
+        } else if (num1 < num2 && num2 > num3) {
+            max = num2;
+        }
+        for (int j = min; j <= max; j++) {
+            System.out.print(j);
+        }
     }
 }
