@@ -54,5 +54,22 @@ public class CyclesTheme {
             k--;
         }
         System.out.println("\n" + sum);
+
+        System.out.println("\n==Task 4 Printing numbers on multiple lines==");
+        int lastNumber = 24;
+        int length = 30;
+        int counter = 1;
+        for (int z = 1; z <= length; z++) {
+            if (z > lastNumber && z % 2 != 0) {
+                System.out.printf("%4d", 0);
+            }
+            if (z % 2 != 0 && z < lastNumber) { 
+                System.out.printf("%4d", z);
+                if (counter % 5 == 0) {
+                    System.out.println();
+                }
+            counter++;
+            }
+        }
     }
 }
