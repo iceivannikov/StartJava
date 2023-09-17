@@ -71,5 +71,27 @@ public class CyclesTheme {
             counter++;
             }
         }
+
+        System.out.println("\n\n==Task 5 Checking the number of twos for even/odd numbers==");
+        int number = 3242592;
+        int numberRes = number;
+        int count = 0;
+        int q = 7;
+        while (q > 0) {
+            int temp = number % 10;
+            if (temp == 2) {
+                count++;
+            }
+            number /= 10;
+            q--;
+        }
+        String parityNumber = "";
+        if (count % 2 == 0) {
+            parityNumber = "(even)";
+        } else {
+            parityNumber = "(odd)";
+        }
+        System.out.println("In " + numberRes + " " + parityNumber + " the number of twos is " + 
+                count);
     }
 }
