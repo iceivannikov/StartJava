@@ -3,7 +3,7 @@ public class CyclesTheme {
     public static void main(String[] args) {
         System.out.println("\n==Task 1 Counting the sum of even and odd numbers==");
         int x = 0;
-        int y =0;
+        int y = 0;
         int start = -10;
         int finish = 21;
         int i = start;
@@ -56,11 +56,11 @@ public class CyclesTheme {
         System.out.println("\n" + sum);
 
         System.out.println("\n==Task 4 Printing numbers on multiple lines==");
-        int lastNumber = 24;
+        int lastNumber = 30;
         int length = 30;
         int counter = 1;
         for (int z = 1; z <= length; z++) {
-            if (z > lastNumber && z % 2 != 0) {
+            if (z % 2 != 0 && z > lastNumber) {
                 System.out.printf("%4d", 0);
             }
             if (z % 2 != 0 && z < lastNumber) { 
@@ -93,5 +93,54 @@ public class CyclesTheme {
         }
         System.out.println("In " + numberRes + " " + parityNumber + " the number of twos is " + 
                 count);
+
+        System.out.println("\n==Task 6 Displaying geometric shapes==");
+        int countForTask6 = 1;
+        for (int e = 0; e < 50; e++) {
+            System.out.print("*");
+            if (countForTask6 % 10 == 0) {
+                System.out.println();
+            }
+            countForTask6++;
+        }
+        System.out.println();
+
+        int row = 5;
+        while (row >= 1) {
+            int countSymbols = 1;
+            while (countSymbols <= row) {
+                System.out.print("#");
+                countSymbols++;
+            }
+            System.out.println();
+            row--;
+        }
+        System.out.println();
+
+        int line = 1;
+        boolean isIncrement = true;
+        int sizeMaxLine = 0;
+        do {
+            int symbols = 0;
+            if (sizeMaxLine == 3) {
+                symbols = 2;
+                isIncrement = false;
+            }
+            do {
+                System.out.print("$");
+                if (isIncrement) {
+                    symbols++;
+                } else {
+                    symbols--;
+                }
+            } while (symbols <= sizeMaxLine && symbols > 0);
+            System.out.println();
+            if (isIncrement) {
+                sizeMaxLine++;
+            } else {
+                sizeMaxLine--;
+            }
+            line++;
+        } while (line <= 5);
     }
 }
