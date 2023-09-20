@@ -87,9 +87,9 @@ public class CyclesTheme {
         }
         String parityNumber = "";
         if (count % 2 == 0) {
-            parityNumber = "(even)";
+            parityNumber = "even";
         } else {
-            parityNumber = "(odd)";
+            parityNumber = "odd";
         }
         System.out.println("In " + numberRes + " " + parityNumber + " the number of twos is " + 
                 count);
@@ -142,5 +142,17 @@ public class CyclesTheme {
             }
             line++;
         } while (line <= 5);
+
+        System.out.println("\n==Task 7 Displaying ASCII characters==");
+        System.out.printf(" %5s   %10s   %10s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
+        for (int a = 15; a <= 255; a++) {
+            if (a >= 33 && a <= 48 && a % 2 != 0) {
+                System.out.printf("%5s  %10s       %-20s%n", a, (char) a, Character.getName(a));
+            } 
+            if (a >= 97 && a <= 122 && a % 2 == 0) {
+                System.out.printf("%5s  %10s       %-20s%n", a, (char) a, Character.getName(a));
+            }
+            
+        }
     }
 }
