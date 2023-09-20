@@ -152,7 +152,23 @@ public class CyclesTheme {
             if (a >= 97 && a <= 122 && a % 2 == 0) {
                 System.out.printf("%5s  %10s       %-20s%n", a, (char) a, Character.getName(a));
             }
-            
         }
+        System.out.println("\n==Task 8 Checking if a number is a palindrome==");
+        int numb = 1234321;
+        int originalNumber = numb;
+        int reversedNumber = 0;
+        while (numb != 0) {
+            int remainder = numb % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            numb = numb / 10;
+        }
+        if (originalNumber == reversedNumber) {
+            System.out.printf("Число %d является палиндромом", originalNumber);
+        } else {
+            System.out.printf("Число %d не является палиндромом", originalNumber);
+        }
+
+        System.out.println("\n==Task 9 Checking if a number is lucky==");
+        
     }
 }
