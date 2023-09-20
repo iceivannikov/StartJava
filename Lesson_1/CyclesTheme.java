@@ -153,6 +153,7 @@ public class CyclesTheme {
                 System.out.printf("%5s  %10s       %-20s%n", a, (char) a, Character.getName(a));
             }
         }
+
         System.out.println("\n==Task 8 Checking if a number is a palindrome==");
         int numb = 1234321;
         int originalNumber = numb;
@@ -160,7 +161,7 @@ public class CyclesTheme {
         while (numb != 0) {
             int remainder = numb % 10;
             reversedNumber = reversedNumber * 10 + remainder;
-            numb = numb / 10;
+            numb /= 10;
         }
         if (originalNumber == reversedNumber) {
             System.out.printf("Число %d является палиндромом", originalNumber);
@@ -168,7 +169,26 @@ public class CyclesTheme {
             System.out.printf("Число %d не является палиндромом", originalNumber);
         }
 
-        System.out.println("\n==Task 9 Checking if a number is lucky==");
-        
+        System.out.println("\n\n==Task 9 Checking if a number is lucky==");
+        int numTask9 = 123456;
+        int numFirstPart = numTask9 / 1000;
+        int numLastPart = numTask9 % 1000;
+        int resultFirstPart = 0;
+        int resultLastPart = 0;
+        int g = 0;
+        while (g < 3) {
+            resultFirstPart += numFirstPart % 10;
+            resultLastPart += numLastPart % 10;
+            numFirstPart /= 10;
+            numLastPart /= 10;
+            g++;
+        }
+        System.out.print("Number " + numTask9);
+        if (resultFirstPart == resultLastPart) {
+            System.out.println(" is happy)))");
+        } else {
+            System.out.println(" is not happy(((");
+        }
+        System.out.println("\n==Task 10 Display of the Pythagorean multiplication table==");
     }
 }
