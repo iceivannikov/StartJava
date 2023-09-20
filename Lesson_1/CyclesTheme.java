@@ -170,7 +170,7 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n==Task 9 Checking if a number is lucky==");
-        int numTask9 = 123456;
+        int numTask9 = 123123;
         int numFirstPart = numTask9 / 1000;
         int numLastPart = numTask9 % 1000;
         int resultFirstPart = 0;
@@ -189,6 +189,25 @@ public class CyclesTheme {
         } else {
             System.out.println(" is not happy(((");
         }
+
         System.out.println("\n==Task 10 Display of the Pythagorean multiplication table==");
+        System.out.printf("   %10s\n","Pythagorean table");
+        System.out.print("   |");
+        for (int z = 2; z < 10; z++) {
+        System.out.printf("%4d", z);
+        }
+        System.out.println();
+        System.out.print("---+");
+        for (int v = 2; v < 10; v++) {
+        System.out.print("----");
+        }
+        System.out.println();
+        for (int h = 2; h <= 9; h++) {
+            System.out.printf("%3d|", h);
+            for(int l = 2; l <= 9; l++) {
+                System.out.printf("%4d", h * l);
+            }
+            System.out.println();
+        }
     }
 }
