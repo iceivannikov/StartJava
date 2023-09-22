@@ -45,12 +45,12 @@ public class CyclesTheme {
 
         System.out.println("\n\n==Task 3 Printing the reverse number and the sum of its digits==");
         int sum = 0;
-        int baseNumber = 1234;
-        while (baseNumber != 0) {
-            int remainder = baseNumber % 10;
+        int number = 1234;
+        while (number != 0) {
+            int remainder = number % 10;
             sum += remainder;
             System.out.print(remainder);
-            baseNumber /= 10;
+            number /= 10;
         }
         System.out.println("\n" + sum);
 
@@ -78,7 +78,7 @@ public class CyclesTheme {
         }
 
         System.out.println("\n\n==Task 5 Checking the number of twos for even/odd numbers==");
-        int number = 3242592;
+        number = 3242592;
         int reverseNumber = number;
         int countTwos = 0;
         int digit = 7;
