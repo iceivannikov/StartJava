@@ -37,14 +37,14 @@ public class CyclesTheme {
         if (number3 > max) {
             max = number3;
         }
-        System.out.print("[");
-        for (int i = min; i <= max; i++) {
-            if (i > min && i <= max) {
+        System.out.print("(");
+        for (int i = max - 1; i > min; i--) {
+            if (i < max - 1 && i > min) {
                 System.out.print(", ");
             }
             System.out.print(i);
         }
-        System.out.println("]");
+        System.out.println(")");
 
         System.out.println("\n==Task 3 Printing the reverse number and the sum of its digits==");
         int sum = 0;
@@ -82,7 +82,7 @@ public class CyclesTheme {
 
         System.out.println("\n\n==Task 5 Checking the number of twos for even/odd numbers==");
         number = 3242592;
-        int reverseNumber = number;
+        int copyNumber = number;
         int countTwos = 0;
         while (number > 0) {
             if (number % 10 == 2) {
@@ -96,7 +96,7 @@ public class CyclesTheme {
         } else {
             state = "odd";
         }
-        System.out.println("In " + reverseNumber + " " + state + 
+        System.out.println("In " + copyNumber + " " + state + 
                 " the number of twos is " + countTwos);
 
         System.out.println("\n==Task 6 Displaying geometric shapes==");
@@ -151,14 +151,7 @@ public class CyclesTheme {
         System.out.println("\n==Task 7 Displaying ASCII characters==");
         System.out.printf(" %5s   %10s   %10s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
         for (int i = 15; i <= 255; i++) {
-            if (i == 27) {
-                System.out.printf("%5s  %10s              %-20s%n", 
-                        i, (char) i, Character.getName(i));
-            } else if (i >= 15 && i < 33 && i % 2 != 0) {
-                System.out.printf("%5s  %10s             %-20s%n", 
-                        i, (char) i, Character.getName(i));
-            }
-            if (i >= 33 && i <= 48 && i % 2 != 0) {
+            if (i >= 15 && i <= 48 && i % 2 != 0) {
                 System.out.printf("%5s  %10s            %-20s%n", 
                         i, (char) i, Character.getName(i));
             } 
@@ -170,36 +163,34 @@ public class CyclesTheme {
 
         System.out.println("\n==Task 8 Checking if a number is a palindrome==");
         number = 1234321;
-        int copuNumber = number;
-        reverseNumber = 0;
+        copyNumber = number;
+        int reverseNumber = 0;
         while (number > 0) {
             int remainder = number % 10;
             reverseNumber = reverseNumber * 10 + remainder;
             number /= 10;
         }
-        System.out.printf("Number %d ", copuNumber);
-        if (copuNumber == reverseNumber) {
+        System.out.printf("Number %d ", copyNumber);
+        if (copyNumber == reverseNumber) {
             System.out.println("is a palindrome");
         } else {
             System.out.println("is not a palindrome");
         }
 
         System.out.println("\n==Task 9 Checking if a number is lucky==");
-        number = 123123;
-        int numberFirstHalf = number / 1000;
-        int numberSecondHalf = number % 1000;
-        int resultFirstHalf = 0;
-        int resultSecondHalf = 0;
-        counter = 0;
-        while (counter < 3) {
-            resultFirstHalf += numberFirstHalf % 10;
-            resultSecondHalf += numberSecondHalf % 10;
-            numberFirstHalf /= 10;
-            numberSecondHalf /= 10;
-            counter++;
+        number = 123124;
+        int leftHalf = number / 1000;
+        int rightHalf = number % 1000;
+        int sumLeftHalf = 0;
+        int sumRightHalf = 0;
+        while (leftHalf > 0 || rightHalf > 0) {
+            sumLeftHalf += leftHalf % 10;
+            sumRightHalf += rightHalf % 10;
+            leftHalf /= 10;
+            rightHalf /= 10;
         }
         System.out.printf("Number %d ", number);
-        if (resultFirstHalf == resultSecondHalf) {
+        if (sumLeftHalf == sumRightHalf) {
             System.out.println("is happy)))");
         } else {
             System.out.println("is not happy(((");
@@ -209,12 +200,11 @@ public class CyclesTheme {
         System.out.printf("   %10s\n","Pythagorean table");
         System.out.print("   |");
         for (int i = 2; i < 10; i++) {
-        System.out.printf("%4d", i);
+            System.out.printf("%4d", i);
         }
-        System.out.println();
-        System.out.print("---+");
+        System.out.print("\n---+");
         for (int i = 2; i < 10; i++) {
-        System.out.print("----");
+            System.out.print("----");
         }
         System.out.println();
         for (int i = 2; i <= 9; i++) {
