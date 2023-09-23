@@ -2,19 +2,19 @@ public class CyclesTheme {
 
     public static void main(String[] args) {
         System.out.println("\n==Task 1 Counting the sum of even and odd numbers==");
-        int sumEvenNumbers = 0;
-        int sumOddNumbers = 0;
         int start = -10;
         int finish = 21;
-        int intervalCounter = start;
+        int sumEvenNumbers = 0;
+        int sumOddNumbers = 0;
+        int counter = start;
         do {
-            if (intervalCounter % 2 == 0) {
-                sumEvenNumbers += intervalCounter;
+            if (counter % 2 == 0) {
+                sumEvenNumbers += counter;
             } else {
-                sumOddNumbers += intervalCounter;
+                sumOddNumbers += counter;
             }
-            intervalCounter++;
-        } while (intervalCounter <= finish);
+            counter++;
+        } while (counter <= finish);
         System.out.println("In the segment [" + start + ", " + finish + "]" + 
                 ", the sum of even numbers = " + sumEvenNumbers + 
                 ", and the sum of odd numbers = " + sumOddNumbers);
@@ -23,30 +23,33 @@ public class CyclesTheme {
         int number1 = 10;
         int number2 = 5;
         int number3 = -1;
-        int max = 0;
-        int min = 0;
-        if (number3 > number1 && number1 < number2) {
-            min = number1;
-        } else if (number1 > number3 && number3 < number2) {
-            min = number3;
-        } else {
+        int min = number1;
+        int max = number1;
+        if (number2 < min) {
             min = number2;
         }
-        if (number3 < number1 && number1 > number2) {
-            max = number1;
-        } else if (number1 < number3 && number3 > number2) {
-            max = number3;
-        } else {
+        if (number3 < min) {
+            min = number3;
+        }
+        if (number2 > max) {
             max = number2;
         }
+        if (number3 > max) {
+            max = number3;
+        }
+        System.out.print("[");
         for (int i = min; i <= max; i++) {
+            if (i > min && i <= max) {
+                System.out.print(", ");
+            }
             System.out.print(i);
         }
+        System.out.println("]");
 
-        System.out.println("\n\n==Task 3 Printing the reverse number and the sum of its digits==");
+        System.out.println("\n==Task 3 Printing the reverse number and the sum of its digits==");
         int sum = 0;
         int number = 1234;
-        while (number != 0) {
+        while (number > 0) {
             int remainder = number % 10;
             sum += remainder;
             System.out.print(remainder);
@@ -56,9 +59,9 @@ public class CyclesTheme {
 
         System.out.println("\n==Task 4 Printing numbers on multiple lines==");
         start = 1;
-        finish = 30;
+        finish = 24;
         int numbersInLine = 5;
-        int counter = 0;
+        counter = 0;
         for (int i = start; i < finish; i++) {
             if (i % 2 != 0) {
                 System.out.printf("%4d", i);
@@ -69,7 +72,7 @@ public class CyclesTheme {
             }
         }
         if (counter % numbersInLine != 0) {
-            int remainingZeros = 5 - (counter % numbersInLine);
+            int remainingZeros = numbersInLine - (counter % numbersInLine);
             for (int i = 0; i < remainingZeros; i++) {
                 System.out.printf("%4d", 0);
                 counter++;
@@ -81,14 +84,11 @@ public class CyclesTheme {
         number = 3242592;
         int reverseNumber = number;
         int countTwos = 0;
-        int digit = 7;
-        while (digit > 0) {
-            int temp = number % 10;
-            if (temp == 2) {
+        while (number > 0) {
+            if (number % 10 == 2) {
                 countTwos++;
             }
             number /= 10;
-            digit--;
         }
         String state = "";
         if (countTwos % 2 == 0) {
@@ -100,13 +100,13 @@ public class CyclesTheme {
                 " the number of twos is " + countTwos);
 
         System.out.println("\n==Task 6 Displaying geometric shapes==");
-        counter = 1;
+        int column = 1;
         for (int i = 0; i < 50; i++) {
             System.out.print("*");
-            if (counter % 10 == 0) {
+            if (column % 10 == 0) {
                 System.out.println();
             }
-            counter++;
+            column++;
         }
         System.out.println();
 
@@ -126,19 +126,19 @@ public class CyclesTheme {
         boolean isIncrement = true;
         int symbolsInLine = 0;
         do {
-            int symbols = 0;
+            counter = 0;
             if (symbolsInLine == 3) {
-                symbols = 2;
+                counter = 2;
                 isIncrement = false;
             }
             do {
                 System.out.print("$");
                 if (isIncrement) {
-                    symbols++;
+                    counter++;
                 } else {
-                    symbols--;
+                    counter--;
                 }
-            } while (symbols <= symbolsInLine && symbols > 0);
+            } while (counter <= symbolsInLine && counter > 0);
             System.out.println();
             if (isIncrement) {
                 symbolsInLine++;
@@ -151,30 +151,40 @@ public class CyclesTheme {
         System.out.println("\n==Task 7 Displaying ASCII characters==");
         System.out.printf(" %5s   %10s   %10s%n", "DECIMAL", "CHARACTER", "DESCRIPTION");
         for (int i = 15; i <= 255; i++) {
+            if (i == 27) {
+                System.out.printf("%5s  %10s              %-20s%n", 
+                        i, (char) i, Character.getName(i));
+            } else if (i >= 15 && i < 33 && i % 2 != 0) {
+                System.out.printf("%5s  %10s             %-20s%n", 
+                        i, (char) i, Character.getName(i));
+            }
             if (i >= 33 && i <= 48 && i % 2 != 0) {
-                System.out.printf("%5s  %10s       %-20s%n", i, (char) i, Character.getName(i));
+                System.out.printf("%5s  %10s            %-20s%n", 
+                        i, (char) i, Character.getName(i));
             } 
             if (i >= 97 && i <= 122 && i % 2 == 0) {
-                System.out.printf("%5s  %10s       %-20s%n", i, (char) i, Character.getName(i));
+                System.out.printf("%5s  %10s            %-20s%n", 
+                        i, (char) i, Character.getName(i));
             }
         }
 
         System.out.println("\n==Task 8 Checking if a number is a palindrome==");
         number = 1234321;
-        int originalNumber = number;
-        int reversedNumber = 0;
-        while (number != 0) {
+        int copuNumber = number;
+        reverseNumber = 0;
+        while (number > 0) {
             int remainder = number % 10;
-            reversedNumber = reversedNumber * 10 + remainder;
+            reverseNumber = reverseNumber * 10 + remainder;
             number /= 10;
         }
-        if (originalNumber == reversedNumber) {
-            System.out.printf("Число %d является палиндромом", originalNumber);
+        System.out.printf("Number %d ", copuNumber);
+        if (copuNumber == reverseNumber) {
+            System.out.println("is a palindrome");
         } else {
-            System.out.printf("Число %d не является палиндромом", originalNumber);
+            System.out.println("is not a palindrome");
         }
 
-        System.out.println("\n\n==Task 9 Checking if a number is lucky==");
+        System.out.println("\n==Task 9 Checking if a number is lucky==");
         number = 123123;
         int numberFirstHalf = number / 1000;
         int numberSecondHalf = number % 1000;
@@ -183,16 +193,16 @@ public class CyclesTheme {
         counter = 0;
         while (counter < 3) {
             resultFirstHalf += numberFirstHalf % 10;
-            resultSecondHalf += resultSecondHalf % 10;
+            resultSecondHalf += numberSecondHalf % 10;
             numberFirstHalf /= 10;
-            resultSecondHalf /= 10;
+            numberSecondHalf /= 10;
             counter++;
         }
-        System.out.print("Number " + number);
+        System.out.printf("Number %d ", number);
         if (resultFirstHalf == resultSecondHalf) {
-            System.out.println(" is happy)))");
+            System.out.println("is happy)))");
         } else {
-            System.out.println(" is not happy(((");
+            System.out.println("is not happy(((");
         }
 
         System.out.println("\n==Task 10 Display of the Pythagorean multiplication table==");
