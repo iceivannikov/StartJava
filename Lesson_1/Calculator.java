@@ -2,29 +2,34 @@ public class Calculator {
 
     public static void main(String[] args) {
         System.out.println("==Task Calculator==");
-        int number1 = 5;
-        int number2 = 5;
+        int value1 = 2;
+        int value2 = 0;
         int result = 0;
         char sign = '%';
         if (sign == '+') {
-            result = number1 + number2;
+            result = value1 + value2;
         } else if (sign == '-') {
-            result = number1 - number2;
+            result = value1 - value2;
         } else if (sign == '*') {
-            result = number1 * number2;
-        } else if (sign == '/') {
-            if (number2 == 0) {
-                System.out.println("You can't divide by zero");
-            } else {
-                result = number1 / number2;
-            }
+            result = value1 * value2;
         } else if (sign == '^') {
-            for (int i = 0; i < number2; i++) {
-                result = number1 * number2;
+            result = value1;
+            for (int i = 1; i < value2; i++) {
+                result *= value1;
             }
-        } else if (sign == '%') {
-            result = number1 % number2;
+        } else if (sign == '%' || sign == '/') {
+            if (value2 == 0) {
+                System.out.println("You can't divide by zero");
+            } else if (sign == '%') {
+                result = value1 % value2;
+            } else {
+                result = value1 / value2;
+            }
         }
-        System.out.println(number1 + " " + sign + " " + number2 + " = " + result);
+        if (value2 == 0 && sign == '%' || value2 == 0 && sign == '/') {
+            System.out.println("Value two cannot be zero");
+        } else {
+            System.out.println(value1 + " " + sign + " " + value2 + " = " + result);
+        }
     }
 }
