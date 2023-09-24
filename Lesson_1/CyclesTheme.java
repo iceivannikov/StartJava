@@ -80,7 +80,7 @@ public class CyclesTheme {
             System.out.println();
         }
 
-        System.out.println("\n\n==Task 5 Checking the number of twos for even/odd numbers==");
+        System.out.println("\n==Task 5 Checking the number of twos for even/odd numbers==");
         number = 3242592;
         int copyNumber = number;
         int countTwos = 0;
@@ -183,7 +183,7 @@ public class CyclesTheme {
         int rightHalf = number % 1000;
         int sumLeftHalf = 0;
         int sumRightHalf = 0;
-        while (leftHalf > 0 || rightHalf > 0) {
+        while (rightHalf > 0) {
             sumLeftHalf += leftHalf % 10;
             sumRightHalf += rightHalf % 10;
             leftHalf /= 10;
