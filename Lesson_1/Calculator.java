@@ -16,7 +16,7 @@ public class Calculator {
             if (b == 0) {
                 result = 1;
             } else {
-            result = a;
+                result = a;
                 for (int i = 1; i < b; i++) {
                     result *= a;
                 }
