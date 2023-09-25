@@ -3,9 +3,9 @@ public class Calculator {
     public static void main(String[] args) {
         System.out.println("==Task Calculator==");
         int a = 3;
-        int b = 3;
+        int b = 0;
         int result = 0;
-        char sign = '%';
+        char sign = '^';
         if (sign == '+') {
             result = a + b;
         } else if (sign == '-') {
@@ -13,9 +13,13 @@ public class Calculator {
         } else if (sign == '*') {
             result = a * b;
         } else if (sign == '^') {
+            if (b == 0) {
+                result = 1;
+            } else {
             result = a;
-            for (int i = 1; i < b; i++) {
-                result *= a;
+                for (int i = 1; i < b; i++) {
+                    result *= a;
+                }
             }
         } else if (sign == '%' || sign == '/') {
             if (b == 0) {
