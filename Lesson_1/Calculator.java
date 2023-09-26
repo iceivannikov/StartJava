@@ -27,6 +27,6 @@ public class Calculator {
                 result = a / b;
             }
         }
-        System.out.println(a + " " + sign + " " + b + " = " + result); 
+        System.out.println(a + " " + sign + " " + b + " = " + result);
     }
 }
