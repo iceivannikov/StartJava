@@ -5,7 +5,7 @@ public class VariableNamesTheme {
         int number = 6;
         int digit = 3;
         int sumNumbers = 15;
-        int multiNumbers = 50;
+        int productNumbers = 50;
         int maxNumber = 2_147_483_647;
         int tens = 3;
         double dogWeight = 4.8;
@@ -19,12 +19,12 @@ public class VariableNamesTheme {
         int randomNumber = 12345;
         int mathExpression = number / digit;
         int selection = 8;
-        int pointsForWin = 100;
+        int score = 100;
         int maxStringLength = 11;
         int menuItem = 12;
         int costCoffeeToGo = 13;
         int startDate = 1232312;
-        int rangeEnd = 24;
+        int endRange = 24;
         String fullNameEmployeeMonth = "Viktor";
         String ebookTitle = "book";
         int size = 15;
@@ -35,7 +35,7 @@ public class VariableNamesTheme {
         System.out.println("number = " + number);
         System.out.println("digit = " + digit);
         System.out.println("sumNumber = " + sumNumbers);
-        System.out.println("multiNumbers = " + multiNumbers);
+        System.out.println("productNumbers = " + productNumbers);
         System.out.println("maxNumber = " + maxNumber);
         System.out.println("tens + " + tens);
         System.out.println("dogWeight = " + dogWeight);
@@ -49,12 +49,12 @@ public class VariableNamesTheme {
         System.out.println("randomNumber = " + randomNumber);
         System.out.println("mathExpression = " + mathExpression);
         System.out.println("selection = " + selection);
-        System.out.println("pointsForWin = " + pointsForWin);
+        System.out.println("score = " + score);
         System.out.println("maxStringLength = " + maxStringLength);
         System.out.println("menuItem = " + menuItem);
         System.out.println("costCoffeeToGo = " + costCoffeeToGo);
         System.out.println("startDate = " + startDate);
-        System.out.println("rangeEnd = " + rangeEnd);
+        System.out.println("endRange = " + endRange);
         System.out.println("fullNameEmployeeMonth = " + fullNameEmployeeMonth);
         System.out.println("ebookTitle = " + ebookTitle);
         System.out.println("size = " + size);
@@ -86,17 +86,17 @@ public class VariableNamesTheme {
         System.out.println("\n3. Abbreviations");
         String uuid = "Universally Unique IDentifier";
         String ram = "Random Access Memory";
-        String hdd = "Hard Disk Drive";
+        String gb = "Gigabyte";
         String http = "HyperText Transfer Protocol";
         String url = "Uniform Resource Locator";
-        String clid = "CLient ID";
+        String id = "identifier";
         String ascii = "American Standard Code for Information Interchange";
         System.out.println("uuid = " + uuid);
         System.out.println("ram = " + ram);
-        System.out.println("hdd = " + hdd);
+        System.out.println("gb = " + gb);
         System.out.println("http = " + http);
         System.out.println("url = " + url);
-        System.out.println("clid = " + clid);
+        System.out.println("id = " + id);
         System.out.println("ascii = " + ascii);
     }
 }
