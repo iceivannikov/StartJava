@@ -86,17 +86,17 @@ public class VariableNamesTheme {
         System.out.println("\n3. Abbreviations");
         String uuid = "Universally Unique IDentifier";
         String ram = "Random Access Memory";
-        String gb = "Gigabyte";
+        String hddCapacity = "hdd Capacity";
         String http = "HyperText Transfer Protocol";
         String url = "Uniform Resource Locator";
-        String id = "identifier";
+        String newClientId = "new Client Id";
         String ascii = "American Standard Code for Information Interchange";
         System.out.println("uuid = " + uuid);
         System.out.println("ram = " + ram);
-        System.out.println("gb = " + gb);
+        System.out.println("hddCapacity = " + hddCapacity);
         System.out.println("http = " + http);
         System.out.println("url = " + url);
-        System.out.println("id = " + id);
+        System.out.println("newClientId = " + newClientId);
         System.out.println("ascii = " + ascii);
     }
 }
