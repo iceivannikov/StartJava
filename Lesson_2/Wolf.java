@@ -7,7 +7,7 @@ public class Wolf {
     private String color;
 
     public String getGender() {
-    return gender;
+        return gender;
     }
 
     public void setGender(String gender) {
