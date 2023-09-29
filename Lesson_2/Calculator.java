@@ -38,14 +38,14 @@ public class Calculator {
         Scanner sc = null;
         int result = 0;
         boolean isEndGame = false;
-        String again = "";
-        do {
+        String countAgain = "";
+        while(!isEndGame) {
             try {
                 sc = new Scanner(System.in);
-                System.out.print("Enter the first number: ");
+                System.out.print("\nEnter the first number: ");
                 int a = sc.nextInt();
                 System.out.print("Enter the sign of the mathematical operation: ");
-                char sign = sc.next ().charAt (0);
+                char sign = sc.next().charAt(0);
                 System.out.print("Enter the second number: ");
                 int b = sc.nextInt();
                 switch(sign) {
@@ -55,21 +55,21 @@ public class Calculator {
                     case '^' -> result = pow(a, b);
                     case '/' -> result = divide(a, b);
                     case '%' -> result = getRemainderDivision(a, b);
-                    default -> System.out.println("There is no such sign");
+                    default -> System.out.printf("%c", sign);
                 }
                 printResultCalculations(a, sign, b, result);
-            } catch (ArithmeticException ex) {
+            } catch(ArithmeticException ex) {
                 System.out.println("ArithmeticException, You can't " + ex.getMessage());
             }
             do {
                 System.out.print("Do you want to continue calculating? [yes/no]: ");
-                again = sc.next();
-                if (again.equals("no")) {
-                isEndGame = true;
-                break;
+                countAgain = sc.next();
+                if (countAgain.equals("no")) {
+                    isEndGame = true;
+                    break;
                 }
-            } while(!again.equals("yes"));
-        } while(!isEndGame);
+            } while(!countAgain.equals("yes"));
+        }
     }
 
     private int sum(int a, int b) {
@@ -100,7 +100,18 @@ public class Calculator {
         return a % b;
     }
 
+    private void checkSign(char sign) {
+        if (sign != 94 && sign > 47) {
+            System.out.println(" - there is no such sign");
+            return;
+        }
+    }
+
     private void printResultCalculations(int a, char sign, int b, int result) {
-        System.out.printf("%d %c %d = %d\n", a, sign, b, result);
+        if (sign != 94 && sign > 47) {
+            System.out.println(" - there is no such sign");
+        } else {
+            System.out.printf("%d %c %d = %d\n", a, sign, b, result);
+        }
     }
 }
