@@ -51,7 +51,7 @@ public class Calculator {
                 case '^' -> result = pow();
                 case '/' -> result = divide();
                 case '%' -> result = getRemainderDivision();
-                default -> System.out.printf("%c", sign);
+                default -> this.sign = sign;
             }
             printResultCalculations(result);
         } catch(ArithmeticException ex) {
@@ -61,7 +61,7 @@ public class Calculator {
 
     private void printResultCalculations(int result) {
         if (sign != CARET_CHAR_NUMBER && sign > MORE_THAN_FORTY_SEVEN_SYMBOLS_IN_THE_ASCII_TABLE) {
-            System.out.println(" - there is no such sign");
+            System.out.println(sign + " - there is no such sign");
         } else {
             System.out.printf("%d %c %d = %d\n", a, sign, b, result);
         }
