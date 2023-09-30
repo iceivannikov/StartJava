@@ -1,90 +1,31 @@
-import java.util.Scanner;
-
 public class Calculator {
+
+    private final int CARET_CHAR_NUMBER = 94;
+    private final int MORE_THAN_FORTY_SEVEN_SYMBOLS_IN_THE_ASCII_TABLE = 47;
 
     private int a;
     private char sign;
     private int b;
 
-    // public Calculator() {
-
-    // }
-
-    // public int getA() {
-    //     return a;
-    // }
-
-    // public void setA(int a) {
-    //     this.a = a;
-    // }
-
-    // public int getB() {
-    //     return b;
-    // }
-
-    // public void setB(int b) {
-    //     this.b = b;
-    // }
-
-    // public char getSugn() {
-    //     return sign;
-    // }
-
-    // public void setSign(char sign) {
-    //     this.sign = sign;
-    // }
-
-    public void run() {
-        Scanner sc = null;
-        int result = 0;
-        boolean isEndGame = false;
-        String countAgain = "";
-        while(!isEndGame) {
-            try {
-                sc = new Scanner(System.in);
-                System.out.print("\nEnter the first number: ");
-                int a = sc.nextInt();
-                System.out.print("Enter the sign of the mathematical operation: ");
-                char sign = sc.next().charAt(0);
-                System.out.print("Enter the second number: ");
-                int b = sc.nextInt();
-                switch(sign) {
-                    case '+' -> result = sum(a, b);
-                    case '-' -> result = subtract(a, b);
-                    case '*' -> result = multiply(a, b);
-                    case '^' -> result = pow(a, b);
-                    case '/' -> result = divide(a, b);
-                    case '%' -> result = getRemainderDivision(a, b);
-                    default -> System.out.printf("%c", sign);
-                }
-                printResultCalculations(a, sign, b, result);
-            } catch(ArithmeticException ex) {
-                System.out.println("ArithmeticException, You can't " + ex.getMessage());
-            }
-            do {
-                System.out.print("Do you want to continue calculating? [yes/no]: ");
-                countAgain = sc.next();
-                if (countAgain.equals("no")) {
-                    isEndGame = true;
-                    break;
-                }
-            } while(!countAgain.equals("yes"));
-        }
+    public Calculator(int a, char sign, int b) {
+        this.a = a;
+        this.sign = sign;
+        this.b = b;
     }
 
-    private int sum(int a, int b) {
+    private int sum() {
         return a + b;
     }
 
-    private int subtract(int a, int b) {
+    private int subtract() {
         return a - b;
     }
 
-    private int multiply(int a, int b) {
+    private int multiply() {
         return a * b;
     }
 
-    private int pow(int a, int b) {
+    private int pow() {
         int result = 1;
         for (int i = 0; i < b; i++) {
             result *= a;
@@ -92,23 +33,34 @@ public class Calculator {
         return result;
     }
 
-    private int divide(int a, int b) {
+    private int divide() {
         return a / b;
     }
 
-    private int getRemainderDivision(int a, int b) {
+    private int getRemainderDivision() {
         return a % b;
     }
 
-    private void checkSign(char sign) {
-        if (sign != 94 && sign > 47) {
-            System.out.println(" - there is no such sign");
-            return;
+    public void calculate() {
+        int result = 0;
+        try {
+            switch(sign) {
+                case '+' -> result = sum();
+                case '-' -> result = subtract();
+                case '*' -> result = multiply();
+                case '^' -> result = pow();
+                case '/' -> result = divide();
+                case '%' -> result = getRemainderDivision();
+                default -> System.out.printf("%c", sign);
+            }
+            printResultCalculations(result);
+        } catch(ArithmeticException ex) {
+            System.out.println("ArithmeticException, You can't " + ex.getMessage());
         }
     }
 
-    private void printResultCalculations(int a, char sign, int b, int result) {
-        if (sign != 94 && sign > 47) {
+    private void printResultCalculations(int result) {
+        if (sign != CARET_CHAR_NUMBER && sign > MORE_THAN_FORTY_SEVEN_SYMBOLS_IN_THE_ASCII_TABLE) {
             System.out.println(" - there is no such sign");
         } else {
             System.out.printf("%d %c %d = %d\n", a, sign, b, result);
