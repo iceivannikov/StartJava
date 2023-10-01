@@ -1,7 +1,11 @@
 public class Calculator {
 
-    private final int CARET_CHAR_NUMBER = 94;
-    private final int MORE_THAN_FORTY_SEVEN_SYMBOLS_IN_THE_ASCII_TABLE = 47;
+    private final char PLUS = '+';
+    private final char MINUS = '-';
+    private final char ASTERISK = '*';
+    private final char CARET = '^';
+    private final char SLASH = '/';
+    private final char PERCENT = '%';
 
     private int a;
     private char sign;
@@ -13,57 +17,29 @@ public class Calculator {
         this.b = b;
     }
 
-    private int sum() {
-        return a + b;
-    }
-
-    private int subtract() {
-        return a - b;
-    }
-
-    private int multiply() {
-        return a * b;
-    }
-
-    private int pow() {
-        int result = 1;
-        for (int i = 0; i < b; i++) {
-            result *= a;
-        }
-        return result;
-    }
-
-    private int divide() {
-        return a / b;
-    }
-
-    private int getRemainderDivision() {
-        return a % b;
-    }
-
     public void calculate() {
         int result = 0;
         try {
             switch(sign) {
-                case '+' -> result = sum();
-                case '-' -> result = subtract();
-                case '*' -> result = multiply();
-                case '^' -> result = pow();
-                case '/' -> result = divide();
-                case '%' -> result = getRemainderDivision();
-                default -> this.sign = sign;
+                case PLUS -> result = a + b;
+                case MINUS -> result = a - b;
+                case ASTERISK -> result = a * b;
+                case CARET -> {
+                    result = 1;
+                    for (int i = 0; i < b; i++) {
+                        result *= a;
+                    }
+                }
+                case SLASH -> result = a / b;
+                case PERCENT -> result = a % b;
+                default -> {
+                    System.out.printf("%c - there is no such sign\n", sign);
+                    return;
+                }
             }
-            printResultCalculations(result);
+            System.out.printf("%d %c %d = %d\n", a, sign, b, result);
         } catch(ArithmeticException ex) {
             System.out.println("ArithmeticException, You can't " + ex.getMessage());
-        }
-    }
-
-    private void printResultCalculations(int result) {
-        if (sign != CARET_CHAR_NUMBER && sign > MORE_THAN_FORTY_SEVEN_SYMBOLS_IN_THE_ASCII_TABLE) {
-            System.out.println(sign + " - there is no such sign");
-        } else {
-            System.out.printf("%d %c %d = %d\n", a, sign, b, result);
         }
     }
 }
