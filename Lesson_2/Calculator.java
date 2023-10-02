@@ -5,7 +5,7 @@ public class Calculator {
     private static final char MULTIPLY = '*';
     private static final char RAISE_TO_POWER = '^';
     private static final char DIVIDE = '/';
-    private static final char REMAINDER_OF_THE_DIVISION = '%';
+    private static final char REMAINDER_WITH_DIVISION = '%';
 
     private int a;
     private char sign;
@@ -31,7 +31,7 @@ public class Calculator {
                     }
                 }
                 case DIVIDE -> result = a / b;
-                case REMAINDER_OF_THE_DIVISION -> result = a % b;
+                case REMAINDER_WITH_DIVISION -> result = a % b;
                 default -> {
                     System.out.printf("%c - there is no such sign\n", sign);
                     return;
