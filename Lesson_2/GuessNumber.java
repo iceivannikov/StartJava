@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Random;
 
 public class GuessNumber {
 
@@ -22,8 +23,11 @@ public class GuessNumber {
         return maxNumber;
     }
 
-    public void start(int number, int answer) {
+    public void start() {
         Scanner sc = new Scanner(System.in);
+        Random random = new Random();
+        int number = random.nextInt(minNumber, maxNumber);
+        int answer = 0;
         System.out.println("The computer has guessed a number, the game begins");
         while(number != answer) {
             System.out.print("Player " + player1.getName() + " is your number: ");

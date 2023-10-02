@@ -1,12 +1,9 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Random random = new Random();
-        int answer = 0;
         String option = "";
         while(!option.equals("no")) {
             System.out.println("\nTo start the game you need to specify the names of the players");
@@ -17,10 +14,7 @@ public class GuessNumberTest {
             Player player1 = new Player(namePlayer1);
             Player player2 = new Player(namePlayer2);
             GuessNumber guessNumber = new GuessNumber(player1, player2);
-            int minNumber = guessNumber.getMinNumber();
-            int maxNumber = guessNumber.getMaxNumber();
-            int number = random.nextInt(minNumber, maxNumber);
-            guessNumber.start(number, answer);
+            guessNumber.start();
             do {
                 System.out.print("Do you want to continue playing? [yes/no]: ");
                 option = sc.next();
