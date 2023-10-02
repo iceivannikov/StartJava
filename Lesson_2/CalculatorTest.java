@@ -17,10 +17,7 @@ public class CalculatorTest {
             do {
                 System.out.print("Do you want to continue calculating? [yes/no]: ");
                 option = sc.next();
-                if (option.equals("no")) {
-                    break;
-                }
-            } while(!option.equals("yes"));
+            } while(!option.equals("yes") && !option.equals("no"));
         }
     }
 }

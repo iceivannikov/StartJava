@@ -1,11 +1,11 @@
 public class Calculator {
 
-    private final char PLUS = '+';
-    private final char MINUS = '-';
-    private final char ASTERISK = '*';
-    private final char CARET = '^';
-    private final char SLASH = '/';
-    private final char PERCENT = '%';
+    private static final char PLUS = '+';
+    private static final char MINUS = '-';
+    private static final char MULTIPLY = '*';
+    private static final char RAISE_TO_POWER = '^';
+    private static final char DIVIDE = '/';
+    private static final char REMAINDER_OF_THE_DIVISION = '%';
 
     private int a;
     private char sign;
@@ -23,15 +23,15 @@ public class Calculator {
             switch(sign) {
                 case PLUS -> result = a + b;
                 case MINUS -> result = a - b;
-                case ASTERISK -> result = a * b;
-                case CARET -> {
+                case MULTIPLY -> result = a * b;
+                case RAISE_TO_POWER -> {
                     result = 1;
                     for (int i = 0; i < b; i++) {
                         result *= a;
                     }
                 }
-                case SLASH -> result = a / b;
-                case PERCENT -> result = a % b;
+                case DIVIDE -> result = a / b;
+                case REMAINDER_OF_THE_DIVISION -> result = a % b;
                 default -> {
                     System.out.printf("%c - there is no such sign\n", sign);
                     return;
