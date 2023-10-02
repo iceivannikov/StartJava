@@ -19,5 +19,6 @@ public class CalculatorTest {
                 option = sc.next();
             } while(!option.equals("yes") && !option.equals("no"));
         }
+        sc.close();
     }
 }
