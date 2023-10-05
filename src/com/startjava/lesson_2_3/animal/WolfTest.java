@@ -1,6 +1,6 @@
-package com.startjava.lesson_2.animal;
+package com.startjava.lesson_2_3.animal;
 
-import com.startjava.lesson_2.animal.Wolf;
+import com.startjava.lesson_2_3.animal.Wolf;
 
 public class WolfTest {
 
