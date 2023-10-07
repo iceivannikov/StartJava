@@ -1,6 +1,5 @@
-package com.startjava.lesson_2_3.guess;
+package com.startjava.lesson_2_3_4.guess;
 
-import com.startjava.lesson_2_3.guess.Player;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -11,8 +10,8 @@ public class GuessNumber {
 
     private final Scanner sc = new Scanner(System.in);
 
-    private Player player1;
-    private Player player2;
+    private final Player player1;
+    private final Player player2;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -22,7 +21,7 @@ public class GuessNumber {
     public void start() {
         Random random = new Random();
         int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-        int answerNumber = 0;
+        int answerNumber;
         System.out.println("The computer has guessed a number, the game begins");
         while(true) {
             answerNumber = inputAnswer(player1);
