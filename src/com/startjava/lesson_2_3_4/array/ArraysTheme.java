@@ -4,35 +4,13 @@ import java.util.Arrays;
 
 public class ArraysTheme {
     public static void main(String[] args) {
-//        arrayReverse();
-//        productArrayElements();
-//        removingArrayElements();
-//        displayingAlphabet();
-        System.out.println("\n== 5 Filling an array with unique numbers ==");
-        int[] numbers = new int[30];
-        int count = 0;
-        while (count < 30) {
-            int randomNumber = (int) (Math.random() * 40) + 60;
-            boolean isDuplicate = false;
-            for (int i = 0; i < count; i++) {
-                if (numbers[i] == randomNumber) {
-                    isDuplicate = true;
-                    break;
-                }
-            }
-            if (!isDuplicate) {
-                numbers[count] = randomNumber;
-                count++;
-            }
-        }
-        sort(numbers);
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + (i < numbers.length - 1 ? ", " : "."));
-            if ((i + 1) % 10 == 0) {
-                System.out.println();
-            }
-        }
+        arrayReverse();
+        productArrayElements();
+        removingArrayElements();
+        displayingAlphabet();
+        fillingArrayUniqueNumbers();
     }
+
 
     private static void arrayReverse() {
         System.out.println("\n== 1 Reversing array values ==");
@@ -98,6 +76,33 @@ public class ArraysTheme {
         for (int j = alphabet.length - 1; j >= 0; j--) {
             result += alphabet[j];
             System.out.println(result);
+        }
+    }
+
+    private static void fillingArrayUniqueNumbers() {
+        System.out.println("\n== 5 Filling an array with unique numbers ==");
+        int[] numbers = new int[30];
+        int count = 0;
+        while (count < numbers.length) {
+            int randomNumber = (int) (Math.random() * 40) + 60;
+            boolean isDuplicate = false;
+            for (int i = 0; i < count; i++) {
+                if (numbers[i] == randomNumber) {
+                    isDuplicate = true;
+                    break;
+                }
+            }
+            if (!isDuplicate) {
+                numbers[count] = randomNumber;
+                count++;
+            }
+        }
+        sort(numbers);
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + (i < numbers.length - 1 ? ", " : "."));
+            if ((i + 1) % 10 == 0) {
+                System.out.println();
+            }
         }
     }
 
