@@ -11,7 +11,6 @@ public class ArraysTheme {
         fillingArrayUniqueNumbers();
     }
 
-
     private static void arrayReverse() {
         System.out.println("\n== 1 Reversing array values ==");
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
