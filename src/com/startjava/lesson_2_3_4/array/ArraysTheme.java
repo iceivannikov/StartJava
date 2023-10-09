@@ -4,22 +4,21 @@ import java.util.Arrays;
 
 public class ArraysTheme {
     public static void main(String[] args) {
-        arrayReverse();
+        reverseArray();
         productArrayElements();
-        removingArrayElements();
+        removeArrayElements();
         displayingAlphabet();
         fillingArrayUniqueNumbers();
     }
 
-    private static void arrayReverse() {
+    private static void reverseArray() {
         System.out.println("\n== 1 Reversing array values ==");
         int[] numbers = {1, 7, 4, 5, 2, 6, 3};
         System.out.println("Before reverse: " + Arrays.toString(numbers));
-        int halfLength = getHalfLength(numbers);
-        int length = numbers.length;
-        for (int i = 0; i < halfLength; i++) {
-            int tmp = numbers[length - 1];
-            numbers[length - 1] = numbers[i];
+        int length = numbers.length - 1;
+        for (int i = 0; i < length; i++) {
+            int tmp = numbers[length];
+            numbers[length] = numbers[i];
             numbers[i] = tmp;
             length--;
         }
@@ -28,39 +27,38 @@ public class ArraysTheme {
 
     private static void productArrayElements() {
         System.out.println("\n== 2 Product of array elements ==");
-        int start = 0;
-        int length = 9 + 1;
+        int length = 10;
         int[] numbers = new int[length];
-        for (int i = start; i < length; i++) {
+        for (int i = 0; i < length; i++) {
             numbers[i] = i;
         }
-        int result = start + 1;
+        int result = 1;
         for (int i = result; i < length - 1; i++) {
             result *= numbers[i];
             System.out.print(i + (i < length - 2 ? " * " : " = "));
         }
-        System.out.printf("%,d", result);
+        System.out.print(result);
     }
 
-    private static void removingArrayElements() {
+    private static void removeArrayElements() {
         System.out.println("\n\n== 3 Removing array elements ==");
         int length = 15;
-        double[] numbers = new double[length];
+        double[] randomNumbers = new double[length];
         System.out.println("Source array:");
         for (int i = 0; i < length; i++) {
-            numbers[i] = Math.random();
-            printArrayTask3(i, length / 2 + 1, numbers[i]);
+            randomNumbers[i] = Math.random();
         }
-        double valueHalfLength = numbers[length / 2];
+        print(randomNumbers);
+        double middleCellValue = randomNumbers[length / 2];
         int countZeros = 0;
         System.out.println("\nModified array:");
         for (int i = 0; i < length; i++) {
-            if (valueHalfLength < numbers[i]) {
-                numbers[i] = 0;
+            if (randomNumbers[i] > middleCellValue) {
+                randomNumbers[i] = 0;
                 countZeros++;
             }
-            printArrayTask3(i, length / 2 + 1, numbers[i]);
         }
+        print(randomNumbers);
         System.out.printf("\nNumber of zeroed cells = %d", countZeros);
     }
 
@@ -80,40 +78,38 @@ public class ArraysTheme {
 
     private static void fillingArrayUniqueNumbers() {
         System.out.println("\n== 5 Filling an array with unique numbers ==");
-        int[] numbers = new int[30];
+        int[] uniqueNumbers = new int[30];
         int count = 0;
-        while (count < numbers.length) {
+        while (count < uniqueNumbers.length) {
             int randomNumber = (int) (Math.random() * 40) + 60;
             boolean isDuplicate = false;
             for (int i = 0; i < count; i++) {
-                if (numbers[i] == randomNumber) {
+                if (uniqueNumbers[i] == randomNumber) {
                     isDuplicate = true;
                     break;
                 }
             }
             if (!isDuplicate) {
-                numbers[count] = randomNumber;
+                uniqueNumbers[count] = randomNumber;
                 count++;
             }
         }
-        sort(numbers);
-        for (int i = 0; i < numbers.length; i++) {
-            System.out.print(numbers[i] + (i < numbers.length - 1 ? ", " : "."));
+        sort(uniqueNumbers);
+        for (int i = 0; i < uniqueNumbers.length; i++) {
+            System.out.print(uniqueNumbers[i] + (i < uniqueNumbers.length - 1 ? ", " : "."));
             if ((i + 1) % 10 == 0) {
                 System.out.println();
             }
         }
     }
 
-    private static int getHalfLength(int[] numbers) {
-        return (numbers.length % 2 == 0) ? numbers.length / 2 : numbers.length / 2 + 1;
-    }
-
-    private static void printArrayTask3(int i, int arrayLength, double number) {
-        if (i == arrayLength) {
-            System.out.println();
+    private static void print(double[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i == array.length / 2 + 1) {
+                System.out.println();
+            }
+            System.out.printf("%.3f ", array[i]);
         }
-        System.out.printf("%.3f ", number);
     }
 
     private static void sort(int[] numbers) {
