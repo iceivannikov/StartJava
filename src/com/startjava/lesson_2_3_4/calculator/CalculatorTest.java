@@ -6,21 +6,22 @@ public class CalculatorTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String option = "";
-        while(!option.equals("no")) {
-            System.out.print("\nEnter the first number: ");
-            int a = sc.nextInt();
-            System.out.print("Enter the sign of the mathematical operation: ");
-            char sign = sc.next().charAt(0);
-            System.out.print("Enter the second number: ");
-            int b = sc.nextInt();
+        double result;
+        boolean isEnd;
+        while (true) {
+            System.out.print("\nEnter a mathematical expression: ");
+            String expression = sc.nextLine();
+            String[] operation = expression.split(" ");
+            int a = Integer.parseInt(operation[0]);
+            String sign = operation[1];
+            int b = Integer.parseInt(operation[2]);
             Calculator calc = new Calculator(a, sign, b);
-            calc.calculate();
-            do {
-                System.out.print("Do you want to continue calculating? [yes/no]: ");
-                option = sc.next();
-            } while(!option.equals("yes") && !option.equals("no"));
+            result = calc.calculate();
+            System.out.printf("%d %s %d = " + (result % 1 == 0 ? "%.0f\n" : "%.3f\n"), a, sign, b, result);
+            isEnd = calc.continueOrEnd();
+            if (!isEnd) {
+                return;
+            }
         }
-        sc.close();
     }
 }
