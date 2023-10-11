@@ -4,24 +4,38 @@ import java.util.Scanner;
 
 public class CalculatorTest {
 
+    private static Scanner sc;
+    public static final String CONTINUE_OR_END = "Do you want to continue calculating? [yes/no]: ";
+    public static final String ENTER_EXPRESSION = "\nEnter a mathematical expression: ";
+    public static final String YES = "yes";
+    public static final String NO = "no";
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        double result;
-        boolean isEnd;
+        sc = new Scanner(System.in);
         while (true) {
-            System.out.print("\nEnter a mathematical expression: ");
+            System.out.print(ENTER_EXPRESSION);
             String expression = sc.nextLine();
-            String[] operation = expression.split(" ");
-            int a = Integer.parseInt(operation[0]);
-            String sign = operation[1];
-            int b = Integer.parseInt(operation[2]);
-            Calculator calc = new Calculator(a, sign, b);
-            result = calc.calculate();
-            System.out.printf("%d %s %d = " + (result % 1 == 0 ? "%.0f\n" : "%.3f\n"), a, sign, b, result);
-            isEnd = calc.continueOrEnd();
-            if (!isEnd) {
+            Calculator calc = new Calculator();
+            double result = calc.calculate(expression);
+            printResult(result, calc);
+            if (!continueOrEnd()) {
                 return;
             }
         }
+    }
+
+    private static void printResult(double result, Calculator calc) {
+        System.out.printf((result == Double.MIN_VALUE) ? "" : "%d %s %d = " +
+                (result % 1 == 0 ? "%.0f\n" : "%.3f\n"), calc.getA(), calc.getSign(), calc.getB(), result);
+    }
+
+    private static boolean continueOrEnd() {
+        String answer;
+        do {
+            System.out.print(CONTINUE_OR_END);
+            answer = sc.next();
+            sc.nextLine();
+        } while (!answer.equals(YES) && !answer.equals(NO));
+        return answer.equals(YES);
     }
 }

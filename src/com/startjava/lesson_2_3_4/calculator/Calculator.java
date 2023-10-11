@@ -1,7 +1,5 @@
 package com.startjava.lesson_2_3_4.calculator;
 
-import java.util.Scanner;
-
 public class Calculator {
 
     private static final String PLUS = "+";
@@ -10,46 +8,57 @@ public class Calculator {
     private static final String RAISE_TO_POWER = "^";
     private static final String DIVIDE = "/";
     private static final String REMAINDER_WITH_DIVISION = "%";
+    private static final String DELIMITER_REGEX = " ";
+    private static final String EXCEPTION_MESSAGE = "Exception!!! You can't divide by zero";
+    private static final String INCORRECT_OPERATION_SIGN = "Error: sign [ %s ] is not supported\n";
 
-    private final int a;
-    private final String sign;
-    private final int b;
+    private int a;
+    private String sign;
+    private int b;
 
-    public Calculator(int a, String sign, int b) {
-        this.a = a;
-        this.sign = sign;
-        this.b = b;
+    public Calculator() {
     }
 
-    public double calculate() {
-        double result = 0;
+    public int getA() {
+        return a;
+    }
+
+    public String getSign() {
+        return sign;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public double calculate(String mathOperation) {
+        String[] partsExpression = mathOperation.split(DELIMITER_REGEX);
+        a = Integer.parseInt(partsExpression[0]);
+        sign = partsExpression[1];
+        b = Integer.parseInt(partsExpression[2]);
         try {
-            switch(sign) {
-                case PLUS -> result = a + b;
-                case MINUS -> result = a - b;
-                case MULTIPLY -> result = a * b;
-                case RAISE_TO_POWER -> result = Math.pow(a, b);
-                case DIVIDE -> result =  (double) a / b;
-                case REMAINDER_WITH_DIVISION -> result = a % b;
-                default -> {
-                    System.out.printf("Error: sign [ %s ] is not supported\n", sign);
-                    result = Double.MIN_VALUE;
+            return switch (sign) {
+                case PLUS -> a + b;
+                case MINUS -> a - b;
+                case MULTIPLY -> a * b;
+                case RAISE_TO_POWER -> Math.pow(a, b);
+                case DIVIDE -> {
+                    if (b == 0) {
+                        System.out.println(EXCEPTION_MESSAGE);
+                        yield Double.MIN_VALUE;
+                    } else {
+                        yield (double) a / b;
+                    }
                 }
-            }
-        } catch(ArithmeticException ex) {
-            System.out.println("ArithmeticException, You can't " + ex.getMessage());
+                case REMAINDER_WITH_DIVISION -> a % b;
+                default -> {
+                    System.out.printf(INCORRECT_OPERATION_SIGN, sign);
+                    yield Double.MIN_VALUE;
+                }
+            };
+        } catch (ArithmeticException ex) {
+            System.out.println(EXCEPTION_MESSAGE);
         }
-        return result;
-    }
-
-    public boolean continueOrEnd() {
-        Scanner sc = new Scanner(System.in);
-        String answer;
-        do {
-            System.out.print("Do you want to continue calculating? [yes/no]: ");
-            answer = sc.next();
-            sc.nextLine();
-        } while(!answer.equals("yes") && !answer.equals("no"));
-        return answer.equals("yes");
+        return Double.MIN_VALUE;
     }
 }
