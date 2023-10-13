@@ -22,8 +22,8 @@ public class Calculator {
             case MINUS -> a - b;
             case MULTIPLY -> a * b;
             case RAISE_TO_POWER -> Math.pow(a, b);
-            case DIVIDE -> b == 0 ? getDoubleMinValueAndPrintExMsg() : (double) a / b;
-            case REMAINDER_WITH_DIVISION -> b == 0 ? getDoubleMinValueAndPrintExMsg() : a % b;
+            case DIVIDE -> b == 0 ? returnDoubleMinValue() : (double) a / b;
+            case REMAINDER_WITH_DIVISION -> b == 0 ? returnDoubleMinValue() : a % b;
             default -> {
                 System.out.printf(NO_SIGN_MSG, sign);
                 yield Double.MIN_VALUE;
@@ -31,8 +31,12 @@ public class Calculator {
         };
     }
 
-    private double getDoubleMinValueAndPrintExMsg() {
-        System.out.println(DIVISION_BY_ZERO_EXCEPTION_MSG);
+    private double returnDoubleMinValue() {
+        print();
         return Double.MIN_VALUE;
+    }
+
+    private static void print() {
+        System.out.println(DIVISION_BY_ZERO_EXCEPTION_MSG);
     }
 }
