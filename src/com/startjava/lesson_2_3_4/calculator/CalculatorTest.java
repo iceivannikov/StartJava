@@ -14,18 +14,16 @@ public class CalculatorTest {
     public static void main(String[] args) {
         String answer = YES;
         while (!Objects.equals(answer, NO)) {
-            if (!Objects.equals(answer, YES) && !Objects.equals(answer, NO)) {
-                System.out.print(CONTINUATION_OR_END_MSG);
-                answer = sc.next();
-                sc.nextLine();
-                continue;
+            if (Objects.equals(answer, YES)) {
+                System.out.print(INPUT_EXPRESSION_MSG);
+                String expression = sc.nextLine();
+                Calculator calc = new Calculator();
+                double result = calc.calculate(expression);
+                printResult(result, expression);
             }
-            System.out.print(INPUT_EXPRESSION_MSG);
-            String expression = sc.nextLine();
-            Calculator calc = new Calculator();
-            double result = calc.calculate(expression);
-            printResult(result, expression);
-            answer = "";
+            System.out.print(CONTINUATION_OR_END_MSG);
+            answer = sc.next();
+            sc.nextLine();
         }
     }
 
