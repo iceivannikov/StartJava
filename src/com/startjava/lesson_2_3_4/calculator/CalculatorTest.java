@@ -7,10 +7,10 @@ public class CalculatorTest {
 
     private static final Scanner sc = new Scanner(System.in);
     public static final String CONTINUATION_OR_END_MSG = "Do you want to continue calculating? [yes/no]: ";
-    public static final String INPUT_EXPRESSION_MSG = "\nEnter a mathematical expression in the format [a + b]: ";
+    public static final String INPUT_EXPRESSION_MSG = "\nEnter a mathematical expression in the format [a sign b]: ";
     public static final String YES = "yes";
     public static final String NO = "no";
-//23
+
     public static void main(String[] args) {
         String answer = YES;
         while (!Objects.equals(answer, NO)) {
