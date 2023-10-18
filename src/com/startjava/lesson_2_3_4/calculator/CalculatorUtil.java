@@ -12,12 +12,6 @@ public class CalculatorUtil {
     public static final int MAX_EXPRESSION_LENGTH = 3;
     public static final String DIVISION_BY_ZERO_EXCEPTION_MSG = "Exception!!! You can't divide by zero";
     public static final String NO_SIGN_MSG = "Error: sign [ %s ] is not supported";
-    public static final String PLUS = "+";
-    public static final String MINUS = "-";
-    public static final String MULTIPLY = "*";
-    public static final String RAISE_TO_POWER = "^";
-    public static final String DIVIDE = "/";
-    public static final String REMAINDER_WITH_DIVISION = "%";
 
     private CalculatorUtil() {
     }

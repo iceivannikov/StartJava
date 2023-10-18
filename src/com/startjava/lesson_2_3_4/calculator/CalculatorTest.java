@@ -23,13 +23,13 @@ public class CalculatorTest {
                     System.out.println(INVALID_EXPRESSION_INPUT_MSG);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println(EXPRESSION_LENGTH_LIMIT_MSG);
-                } catch (IllegalArgumentException e) {
+                } catch (IllegalArgumentException | NullPointerException e) {
                     System.out.println(NO_SIGN_MSG);
                 }
+                System.out.print(CONTINUATION_OR_END_MSG);
+                answer = sc.next();
+                sc.nextLine();
             }
-            System.out.print(CONTINUATION_OR_END_MSG);
-            answer = sc.next();
-            sc.nextLine();
         }
     }
 }
