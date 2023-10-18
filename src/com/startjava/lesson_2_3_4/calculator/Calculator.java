@@ -8,7 +8,6 @@ public class Calculator {
     private static final String RAISE_TO_POWER = "^";
     private static final String DIVIDE = "/";
     private static final String REMAINDER_WITH_DIVISION = "%";
-    private static final int MAX_EXPRESSION_LENGTH = 3;
 
     public static double calculate(String expression) throws RuntimeException {
         int a;
@@ -16,9 +15,6 @@ public class Calculator {
         String sign;
         double result;
         String[] partsExpression = expression.split(" ");
-        if (partsExpression.length != MAX_EXPRESSION_LENGTH) {
-            throw new IndexOutOfBoundsException();
-        }
         a = parseNumber(partsExpression[0]);
         b = parseNumber(partsExpression[2]);
         sign = partsExpression[1];
