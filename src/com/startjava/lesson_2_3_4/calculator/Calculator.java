@@ -1,24 +1,15 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import static com.startjava.lesson_2_3_4.calculator.CalculatorUtil.*;
+
 public class Calculator {
 
-    private static final String PLUS = "+";
-    private static final String MINUS = "-";
-    private static final String MULTIPLY = "*";
-    private static final String RAISE_TO_POWER = "^";
-    private static final String DIVIDE = "/";
-    private static final String REMAINDER_WITH_DIVISION = "%";
-
-    public static double calculate(String expression) throws RuntimeException {
-        int a;
-        int b;
-        String sign;
-        double result;
+    public static double calculate(String expression) {
         String[] partsExpression = expression.split(" ");
-        a = parseNumber(partsExpression[0]);
-        b = parseNumber(partsExpression[2]);
-        sign = partsExpression[1];
-        result = switch (sign) {
+        int a = parseNumber(partsExpression[0]);
+        int b = parseNumber(partsExpression[2]);
+        String sign = partsExpression[1];
+        return switch (sign) {
             case PLUS -> a + b;
             case MINUS -> a - b;
             case MULTIPLY -> a * b;
@@ -27,7 +18,6 @@ public class Calculator {
             case REMAINDER_WITH_DIVISION -> a % b;
             default -> throw new IllegalArgumentException();
         };
-        return result;
     }
 
     private static double div(int b, double a) {
@@ -39,7 +29,7 @@ public class Calculator {
 
     private static int parseNumber(String partExpression) {
         int result;
-            result = Integer.parseInt(partExpression);
+        result = Integer.parseInt(partExpression);
         if (result < 0) {
             throw new NumberFormatException();
         }
