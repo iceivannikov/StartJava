@@ -13,9 +13,9 @@ public class GuessNumber {
     private final Player player1;
     private final Player player2;
 
-    public GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    public GuessNumber(String name1, String name2) {
+        player1 = new Player(name1);
+        player2 = new Player(name2);
     }
 
     public void start() {
@@ -23,31 +23,55 @@ public class GuessNumber {
         int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         int answerNumber;
         System.out.println("The computer has guessed a number, the game begins");
-        while(true) {
+        while (player1.getAttempts() != 0 && player2.getAttempts() != 0) {
             answerNumber = inputAnswer(player1);
             if (isGuessed(guessNumber, answerNumber, player1)) {
                 break;
             }
+            attemptsOver(player1);
             answerNumber = inputAnswer(player2);
             if (isGuessed(guessNumber, answerNumber, player2)) {
                 break;
             }
+            attemptsOver(player2);
+        }
+        print(player1);
+        print(player2);
+        player1.clear();
+        player2.clear();
+    }
+
+    private static void attemptsOver(Player player) {
+        if (player.getAttempts() == 0) {
+            System.out.printf("%s has run out of attempts\n", player.getName());
         }
     }
 
     private int inputAnswer(Player player) {
         System.out.printf("Player %s is your number: ", player.getName());
-        return sc.nextInt();
+        int number = sc.nextInt();
+        player.addNumber(number);
+        return number;
     }
 
     private boolean isGuessed(int guessNumber, int answerNumber, Player player) {
         boolean isEquals = answerNumber == guessNumber;
         if (isEquals) {
-            System.out.printf("Player %s win!!!\n", player.getName());
-            return isEquals;
+            System.out.printf("Player %s guessed %d with %d attempts\n",
+                    player.getName(), answerNumber, player.getSize());
+            return true;
         }
-        System.out.printf("The number %d is %s than what the computer guessed\n", 
+        System.out.printf("The number %d is %s than what the computer guessed\n",
                 answerNumber, (answerNumber > guessNumber) ? "greater" : "less");
-        return isEquals;
+        return false;
+    }
+
+    private void print(Player player) {
+        System.out.printf("\nNumbers called by the player by name %s: ", player.getName());
+        int[] numbers = player.getPlayerNumbers();
+        for (int number : numbers) {
+            System.out.print(number + " ");
+        }
+        System.out.println();
     }
 }

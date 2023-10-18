@@ -6,19 +6,20 @@ public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String option = "";
-        while(!option.equals("no")) {
-            System.out.println("\nTo start the game you need to specify the names of the players");
-            System.out.print("Enter the name of the first player: ");
-            Player player1 = new Player(sc.next());
-            System.out.print("Enter the name of the second player: ");
-            Player player2 = new Player(sc.next());
-            GuessNumber game = new GuessNumber(player1, player2);
-            game.start();
-            do {
-                System.out.print("Do you want to continue playing? [yes/no]: ");
-                option = sc.next();
-            } while(!option.equals("yes") && !option.equals("no"));
+        String option = "yes";
+        while (!option.equals("no")) {
+            if (option.equals("yes")) {
+                System.out.println("\nThe game has begun! Each player has 10 attempts");
+                System.out.print("Enter the name of the first player: ");
+                String name1 = sc.next();
+                System.out.print("Enter the name of the second player: ");
+                String name2 = sc.next();
+                GuessNumber game = new GuessNumber(name1, name2);
+                game.start();
+            }
+            System.out.print("Do you want to continue playing? [yes/no]: ");
+            option = sc.next();
+            sc.nextLine();
         }
         sc.close();
     }

@@ -31,5 +31,6 @@ public class CalculatorTest {
                 sc.nextLine();
             }
         }
+        sc.close();
     }
 }
