@@ -4,9 +4,10 @@ public enum MathSign {
     PLUS("+"),
     MINUS("-"),
     MULTIPLY("*"),
-    RAISE_TO_POWER("^"),
+    POWER("^"),
     DIVIDE("/"),
-    REMAINDER_WITH_DIVISION("%");
+    MOD("%");
+
     private final String title;
 
     MathSign(String title) {

@@ -7,15 +7,23 @@ public class Calculator {
         int a = parseNumber(partsExpression[0]);
         int b = parseNumber(partsExpression[2]);
         MathSign mathSign = returnMathSign(partsExpression[1]);
-        assert mathSign != null;
+        if (mathSign == null) throw new AssertionError();
         return switch (mathSign) {
             case PLUS -> a + b;
             case MINUS -> a - b;
             case MULTIPLY -> a * b;
-            case RAISE_TO_POWER -> Math.pow(a, b);
+            case POWER -> Math.pow(a, b);
             case DIVIDE -> div(b, a);
-            case REMAINDER_WITH_DIVISION -> a % b;
+            case MOD -> a % b;
         };
+    }
+
+    private static int parseNumber(String partExpression) {
+        int result = Integer.parseInt(partExpression);
+        if (result < 0) {
+            throw new NumberFormatException();
+        }
+        return result;
     }
 
     private static double div(int b, double a) {
@@ -23,15 +31,6 @@ public class Calculator {
             throw new ArithmeticException();
         }
         return a / b;
-    }
-
-    private static int parseNumber(String partExpression) {
-        int result;
-        result = Integer.parseInt(partExpression);
-        if (result < 0) {
-            throw new NumberFormatException();
-        }
-        return result;
     }
 
     private static MathSign returnMathSign(String sign) {
