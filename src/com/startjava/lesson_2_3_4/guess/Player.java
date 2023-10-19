@@ -5,15 +5,12 @@ import java.util.Arrays;
 public class Player {
 
     private final String name;
-    private final int[] playerNumbers;
+    private final int[] playerNumbers = new int[10];
     private int size = 0;
     private int attempts = 10;
 
-
-
     public Player(String name) {
         this.name = name;
-        playerNumbers = new int[10];
     }
 
     public String getName() {
@@ -38,6 +35,6 @@ public class Player {
     }
 
     public void clear() {
-        Arrays.fill(playerNumbers, 0, 0, size);
+        Arrays.fill(playerNumbers, 0, size, 0);
     }
 }

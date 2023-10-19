@@ -2,22 +2,24 @@ package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Scanner;
 
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.*;
+
 public class GuessNumberTest {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        String option = "yes";
-        while (!option.equals("no")) {
-            if (option.equals("yes")) {
-                System.out.println("\nThe game has begun! Each player has 10 attempts");
-                System.out.print("Enter the name of the first player: ");
+        String option = YES;
+        while (!option.equals(NO)) {
+            if (option.equals(YES)) {
+                System.out.println(GAME_START_MSG);
+                System.out.print(NAME_FIRST_PLAYER_MSG);
                 String name1 = sc.next();
-                System.out.print("Enter the name of the second player: ");
+                System.out.print(NAME_SECOND_PLAYER_MSG);
                 String name2 = sc.next();
                 GuessNumber game = new GuessNumber(name1, name2);
                 game.start();
             }
-            System.out.print("Do you want to continue playing? [yes/no]: ");
+            System.out.print(CONTINUATION_OR_END_MSG);
             option = sc.next();
             sc.nextLine();
         }

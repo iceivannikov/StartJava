@@ -3,10 +3,9 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 import java.util.Random;
 
-public class GuessNumber {
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.*;
 
-    private static final int MIN_NUMBER = 1;
-    private static final int MAX_NUMBER = 101;
+public class GuessNumber {
 
     private final Scanner sc = new Scanner(System.in);
 
@@ -22,7 +21,7 @@ public class GuessNumber {
         Random random = new Random();
         int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         int answerNumber;
-        System.out.println("The computer has guessed a number, the game begins");
+        System.out.println(COMPUTER_GUESSED_NUMBER_MSG);
         while (player1.getAttempts() != 0 && player2.getAttempts() != 0) {
             answerNumber = inputAnswer(player1);
             if (isGuessed(guessNumber, answerNumber, player1)) {
@@ -40,15 +39,8 @@ public class GuessNumber {
         player1.clear();
         player2.clear();
     }
-
-    private static void attemptsOver(Player player) {
-        if (player.getAttempts() == 0) {
-            System.out.printf("%s has run out of attempts\n", player.getName());
-        }
-    }
-
     private int inputAnswer(Player player) {
-        System.out.printf("Player %s is your number: ", player.getName());
+        System.out.printf(INPUT_NUMBER_MSG, player.getName());
         int number = sc.nextInt();
         player.addNumber(number);
         return number;
@@ -57,17 +49,21 @@ public class GuessNumber {
     private boolean isGuessed(int guessNumber, int answerNumber, Player player) {
         boolean isEquals = answerNumber == guessNumber;
         if (isEquals) {
-            System.out.printf("Player %s guessed %d with %d attempts\n",
-                    player.getName(), answerNumber, player.getSize());
+            System.out.printf(ATTEMPTS_MSG, player.getName(), answerNumber, player.getSize());
             return true;
         }
-        System.out.printf("The number %d is %s than what the computer guessed\n",
-                answerNumber, (answerNumber > guessNumber) ? "greater" : "less");
+        System.out.printf(NUMBER_GREATER_OR_LESS_MSG, answerNumber, (answerNumber > guessNumber) ? GREATER : LESS);
         return false;
     }
 
+    private static void attemptsOver(Player player) {
+        if (player.getAttempts() == 0) {
+            System.out.printf(ENDED_ATTEMPTS_MSG, player.getName());
+        }
+    }
+
     private void print(Player player) {
-        System.out.printf("\nNumbers called by the player by name %s: ", player.getName());
+        System.out.printf(ALL_NUMBERS_MSG, player.getName());
         int[] numbers = player.getPlayerNumbers();
         for (int number : numbers) {
             System.out.print(number + " ");
