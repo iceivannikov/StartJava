@@ -19,4 +19,6 @@ public class GuessNumberUtil {
     public static final String NAME_SECOND_PLAYER_MSG = "Enter the name of the second player: ";
     public static final String CONTINUATION_OR_END_MSG = "Do you want to continue playing? [yes/no]: ";
 
+    private GuessNumberUtil() {
+    }
 }
