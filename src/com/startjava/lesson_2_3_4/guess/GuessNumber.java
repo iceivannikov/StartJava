@@ -22,7 +22,7 @@ public class GuessNumber {
         int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
         int answerNumber;
         System.out.println(COMPUTER_GUESSED_NUMBER_MSG);
-        while (player1.getAttempts() != 0 && player2.getAttempts() != 0) {
+        while (player1.getAttempts() != 10 && player2.getAttempts() != 10) {
             answerNumber = inputAnswer(player1);
             if (isGuessed(guessNumber, answerNumber, player1)) {
                 break;
@@ -57,7 +57,7 @@ public class GuessNumber {
     }
 
     private static void attemptsOver(Player player) {
-        if (player.getAttempts() == 0) {
+        if (player.getAttempts() == 10) {
             System.out.printf(ENDED_ATTEMPTS_MSG, player.getName());
         }
     }

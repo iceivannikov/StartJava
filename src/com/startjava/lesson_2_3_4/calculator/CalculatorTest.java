@@ -12,9 +12,9 @@ public class CalculatorTest {
         String answer = YES;
         while (!Objects.equals(answer, NO)) {
             if (Objects.equals(answer, YES)) {
+                System.out.print(INPUT_EXPRESSION_MSG);
+                String expression = sc.nextLine();
                 try {
-                    System.out.print(INPUT_EXPRESSION_MSG);
-                    String expression = sc.nextLine();
                     double result = Calculator.calculate(expression);
                     printResult(result, expression);
                 } catch (ArithmeticException e) {
@@ -23,7 +23,7 @@ public class CalculatorTest {
                     System.out.println(INVALID_EXPRESSION_INPUT_MSG);
                 } catch (IndexOutOfBoundsException e) {
                     System.out.println(EXPRESSION_LENGTH_LIMIT_MSG);
-                } catch (IllegalArgumentException | AssertionError e) {
+                } catch (IllegalArgumentException e) {
                     System.out.println(NO_SIGN_MSG);
                 }
             }

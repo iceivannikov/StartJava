@@ -1,45 +1,36 @@
 package com.startjava.lesson_2_3_4.calculator;
 
+import static com.startjava.lesson_2_3_4.calculator.MathSign.*;
+
 public class Calculator {
 
     public static double calculate(String expression) {
         String[] partsExpression = expression.split(" ");
         int a = parseNumber(partsExpression[0]);
         int b = parseNumber(partsExpression[2]);
-        MathSign mathSign = returnMathSign(partsExpression[1]);
-        if (mathSign == null) throw new AssertionError();
+        MathSign mathSign = getTitleBySign(partsExpression[1]);
         return switch (mathSign) {
             case PLUS -> a + b;
             case MINUS -> a - b;
             case MULTIPLY -> a * b;
             case POWER -> Math.pow(a, b);
-            case DIVIDE -> div(b, a);
+            case DIVIDE -> div(a, b);
             case MOD -> a % b;
         };
     }
 
-    private static int parseNumber(String partExpression) {
-        int result = Integer.parseInt(partExpression);
-        if (result < 0) {
+    private static int parseNumber(String element) {
+        int number = Integer.parseInt(element);
+        if (number < 0) {
             throw new NumberFormatException();
         }
-        return result;
+        return number;
     }
 
-    private static double div(int b, double a) {
+    private static double div(int a, int b) {
         if (b == 0) {
             throw new ArithmeticException();
         }
-        return a / b;
-    }
-
-    private static MathSign returnMathSign(String sign) {
-        MathSign[] values = MathSign.values();
-        for (MathSign value : values) {
-            if (value.getTitle().equals(sign)) {
-                return value;
-            }
-        }
-        return null;
+        return (double) a / b;
     }
 }

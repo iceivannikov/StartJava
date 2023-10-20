@@ -17,4 +17,14 @@ public enum MathSign {
     public String getTitle() {
         return title;
     }
+
+    public static MathSign getTitleBySign(String sign) {
+        MathSign[] values = MathSign.values();
+        for (MathSign value : values) {
+            if (value.getTitle().equals(sign)) {
+                return value;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
 }
