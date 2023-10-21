@@ -8,7 +8,7 @@ public class Player {
 
     private final String name;
     private final int[] numbers = new int[COUNT_ATTEMPTS];
-    private int attempt = 0;
+    private int attempt;
 
     public Player(String name) {
         this.name = name;
@@ -18,20 +18,20 @@ public class Player {
         return name;
     }
 
-    public int getSize() {
-        return attempt;
-    }
-
-    public int[] getPlayerNumbers() {
+    public int[] getNumbers() {
         return Arrays.copyOf(numbers, attempt);
     }
 
-    public int getAttempts() {
+    public int getAttempt() {
         return attempt;
     }
 
     public void addNumber(int number) {
         numbers[attempt++] = number;
+    }
+
+    public int getLastNumber() {
+        return numbers[attempt - 1];
     }
 
     public void clear() {

@@ -3,6 +3,7 @@ package com.startjava.lesson_2_3_4.guess;
 public class GuessNumberUtil {
     public static final int MIN_NUMBER = 1;
     public static final int MAX_NUMBER = 101;
+    public static final int MAX_ATTEMPTS = 10;
     public static final String INPUT_NUMBER_MSG = "Player %s is your number: ";
     public static final String ATTEMPTS_MSG = "Player %s guessed %d with %d attempts\n";
     public static final String NUMBER_GREATER_OR_LESS_MSG = "The number %d is %s than what the computer guessed\n";
