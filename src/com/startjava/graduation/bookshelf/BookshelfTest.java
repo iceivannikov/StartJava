@@ -1,2 +1,4 @@
-package com.startjava.graduation.bookshelf;public class BookshelfTest {
+package com.startjava.graduation.bookshelf;
+
+public class BookshelfTest {
 }
