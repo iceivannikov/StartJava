@@ -2,48 +2,32 @@ package com.startjava.graduation.bookshelf;
 
 public class Book {
 
-    private String author;
-    private String name;
-    private int yearOfPublishing;
-    private int informationLength;
+    private final String author;
+    private final String name;
+    private final int yearOfPublishing;
+    private final int informationLength;
 
-    public Book(String author, String name, int yearOfPublishing, int informationLength) {
+    public Book(String author, String name, int yearOfPublishing) {
         this.author = author;
         this.name = name;
         this.yearOfPublishing = yearOfPublishing;
-        this.informationLength = informationLength;
+        this.informationLength = author.length() + name.length() + 8;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getYearOfPublishing() {
         return yearOfPublishing;
     }
 
-    public void setYearOfPublishing(int yearOfPublishing) {
-        this.yearOfPublishing = yearOfPublishing;
-    }
-
     public int getInformationLength() {
         return informationLength;
-    }
-
-    public void setInformationLength(int informationLength) {
-        this.informationLength = informationLength;
     }
 
     @Override
