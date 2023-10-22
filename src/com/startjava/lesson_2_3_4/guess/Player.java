@@ -26,8 +26,12 @@ public class Player {
         return attempt;
     }
 
-    public void addNumber(int number) {
-        numbers[attempt++] = number;
+    public boolean addNumber(int number) {
+        if (number > 0 && number < 101) {
+            numbers[attempt++] = number;
+            return true;
+        }
+        return false;
     }
 
     public int getLastNumber() {

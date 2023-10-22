@@ -16,7 +16,9 @@ public class GuessNumberTest {
                 String name1 = sc.next();
                 System.out.print(NAME_SECOND_PLAYER_MSG);
                 String name2 = sc.next();
-                GuessNumber game = new GuessNumber(name1, name2);
+                System.out.print(NAME_THIRD_PLAYER_MSG);
+                String name3 = sc.next();
+                GuessNumber game = new GuessNumber(name1, name2, name3);
                 game.start();
             }
             System.out.print(CONTINUATION_OR_END_MSG);

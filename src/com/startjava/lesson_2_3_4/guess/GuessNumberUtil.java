@@ -12,12 +12,16 @@ public class GuessNumberUtil {
     public static final String ENDED_ATTEMPTS_MSG = "%s has run out of attempts\n";
     public static final String ALL_NUMBERS_MSG = "\nNumbers called by the player by name %s: ";
     public static final String COMPUTER_GUESSED_NUMBER_MSG = "The computer guessed a number";
+    public static final String TRY_AGAIN_MSG = "Try again";
+    public static final String RANGE_NUMBERS_MSG = "The number must be in the range from 0 to 100";
+    public static final String ANSWER_PROCEDURE_MSG = "The answer order is determined randomly, be careful";
 
     public static final String YES = "yes";
     public static final String NO = "no";
     public static final String GAME_START_MSG = "\nThe game has begun! Each player has 10 attempts";
     public static final String NAME_FIRST_PLAYER_MSG = "Enter the name of the first player: ";
     public static final String NAME_SECOND_PLAYER_MSG = "Enter the name of the second player: ";
+    public static final String NAME_THIRD_PLAYER_MSG = "Enter the name of the third player: ";
     public static final String CONTINUATION_OR_END_MSG = "Do you want to continue playing? [yes/no]: ";
 
     public static final int COUNT_ATTEMPTS = 10;
