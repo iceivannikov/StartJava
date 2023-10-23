@@ -9,6 +9,7 @@ public class Player {
     private final String name;
     private final int[] numbers = new int[COUNT_ATTEMPTS];
     private int attempt;
+    private int win;
 
     public Player(String name) {
         this.name = name;
@@ -24,6 +25,14 @@ public class Player {
 
     public int getAttempt() {
         return attempt;
+    }
+
+    public int getWin() {
+        return win;
+    }
+
+    public void incrementAndGetWin() {
+       ++win;
     }
 
     public boolean addNumber(int number) {

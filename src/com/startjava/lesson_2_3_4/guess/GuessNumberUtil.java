@@ -15,6 +15,10 @@ public class GuessNumberUtil {
     public static final String TRY_AGAIN_MSG = "Try again";
     public static final String RANGE_NUMBERS_MSG = "The number must be in the range from 0 to 100";
     public static final String ANSWER_PROCEDURE_MSG = "The answer order is determined randomly, be careful";
+    public static final String PLAYER_NAME_WIN_MSG = "winner is the player named %s\n";
+    public static final int TOTAL_ROUND = 4;
+    public static final String TOTAL_WINS_MSG = "Total wins player %s: %d\n";
+    public static final String ROUND_NO_MSG = "In round no. %d ";
 
     public static final String YES = "yes";
     public static final String NO = "no";
