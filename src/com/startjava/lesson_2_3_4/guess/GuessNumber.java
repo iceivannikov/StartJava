@@ -3,57 +3,52 @@ package com.startjava.lesson_2_3_4.guess;
 import java.util.Scanner;
 import java.util.Random;
 
-import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.*;
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.TOTAL_PLAYERS;
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.TOTAL_ROUND;
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.MAX_ATTEMPTS;
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.MAX_NUMBER;
+import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.MIN_NUMBER;
 
 public class GuessNumber {
 
     private final Scanner sc = new Scanner(System.in);
 
-    private final Player[] players = new Player[3];
+    private final Player[] players = new Player[TOTAL_PLAYERS];
     private int round = 1;
 
-    public GuessNumber(String name1, String name2, String name3) {
-        players[0] = new Player(name1);
-        players[1] = new Player(name2);
-        players[2] = new Player(name3);
+    public GuessNumber(String[] names) {
+        for (int i = 0; i < names.length; i++) {
+            players[i] = new Player(names[i]);
+        }
     }
 
     public void start() {
         Random random = new Random();
         while (round < TOTAL_ROUND) {
             int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-            print("Round: %d\n", round);
-            print(COMPUTER_GUESSED_NUMBER_MSG);
-            throwLots(players);
-            print(ANSWER_PROCEDURE_MSG);
-            while (checkAttempt(players[0]) && checkAttempt(players[1]) && checkAttempt(players[2])) {
-                inputAnswer(players[0]);
-                if (isGuessed(guessNumber, players[0])) {
+            System.out.printf("Round: %d\n", round);
+            System.out.println(GuessNumberUtil.COMPUTER_GUESSED_NUMBER_MSG);
+            castLots(players);
+            System.out.println(GuessNumberUtil.ANSWER_PROCEDURE_MSG);
+            int i = 0;
+            while (checkAttempts(players)) {
+                inputAnswer(players[i]);
+                if (isGuessed(guessNumber, players[i])) {
                     break;
                 }
-                attemptsOver(players[0]);
-                inputAnswer(players[1]);
-                if (isGuessed(guessNumber, players[1])) {
-                    break;
+                printAttemptsEnded(players[i]);
+                i++;
+                if (i == TOTAL_PLAYERS) {
+                    i = 0;
                 }
-                attemptsOver(players[1]);
-                inputAnswer(players[2]);
-                if (isGuessed(guessNumber, players[2])) {
-                    break;
-                }
-                attemptsOver(players[2]);
             }
-            printAllAnswer(players[0]);
-            printAllAnswer(players[1]);
-            printAllAnswer(players[2]);
-            players[0].clear();
-            players[1].clear();
-            players[2].clear();
+            printAllAnswer(players);
+            clear(players);
             round++;
         }
     }
 
-    private void throwLots(Player[] players) {
+    private void castLots(Player[] players) {
         for (int i = players.length; i > 1; i--) {
             int range = (int) (Math.random() * (i - 1));
             Player swap = players[range];
@@ -62,18 +57,24 @@ public class GuessNumber {
         }
     }
 
-    private boolean checkAttempt(Player player) {
-        return player.getAttempt() != MAX_ATTEMPTS;
+    private boolean checkAttempts(Player[] players) {
+        int countTrue = 0;
+        for (Player player : players) {
+            if (player.getAttempt() != MAX_ATTEMPTS) {
+                countTrue++;
+            }
+        }
+        return countTrue == TOTAL_PLAYERS;
     }
 
     private void inputAnswer(Player player) {
-        print(INPUT_NUMBER_MSG, player);
+        System.out.printf(GuessNumberUtil.INPUT_NUMBER_MSG, player);
         int number = sc.nextInt();
-        if (!player.addNumber(number)) {
-            while (!player.addNumber(number)) {
-                print(RANGE_NUMBERS_MSG);
-                print(TRY_AGAIN_MSG);
-                print(INPUT_NUMBER_MSG, player);
+        if (player.addNumber(number)) {
+            while (player.addNumber(number)) {
+                System.out.println(GuessNumberUtil.RANGE_NUMBERS_MSG);
+                System.out.println(GuessNumberUtil.TRY_AGAIN_MSG);
+                System.out.printf(GuessNumberUtil.INPUT_NUMBER_MSG, player);
                 number = sc.nextInt();
             }
         }
@@ -82,56 +83,49 @@ public class GuessNumber {
     private boolean isGuessed(int guessNumber, Player player) {
         int answerNumber = player.getLastNumber();
         if (answerNumber == guessNumber) {
-            player.incrementAndGetWin();
-            winnerInfo(player);
-            System.out.printf(ATTEMPTS_MSG, player.getName(), answerNumber, player.getAttempt());
+            player.incrementWin();
+            printWinnerInfo(player);
+            System.out.printf(GuessNumberUtil.ATTEMPTS_MSG, player.getName(), answerNumber, player.getAttempt());
             return true;
         }
-        System.out.printf(NUMBER_GREATER_OR_LESS_MSG, answerNumber, (answerNumber > guessNumber) ? GREATER : LESS);
+        System.out.printf(GuessNumberUtil.NUMBER_GREATER_OR_LESS_MSG, answerNumber,
+                (answerNumber > guessNumber) ? GuessNumberUtil.GREATER : GuessNumberUtil.LESS);
         return false;
     }
 
-    private void winnerInfo(Player player) {
-        print(ROUND_NO_MSG, round);
-        print(PLAYER_NAME_WIN_MSG, player);
-        print("Total rounds " + (TOTAL_ROUND - 1) + ", rounds left " + (TOTAL_ROUND - 1 - round));
-        rating(players);
+    private void printWinnerInfo(Player player) {
+        System.out.printf(GuessNumberUtil.ROUND_NO_MSG, round);
+        System.out.printf(GuessNumberUtil.PLAYER_NAME_WIN_MSG, player);
+        System.out.println("Total rounds " + (TOTAL_ROUND - 1) + ", rounds left " + (TOTAL_ROUND - 1 - round));
+        printRating(players);
     }
 
-    private void rating(Player[] players) {
+    private void printRating(Player[] players) {
         for (Player player : players) {
-            printWin(TOTAL_WINS_MSG, player);
+            System.out.printf(GuessNumberUtil.TOTAL_WINS_MSG, player.getName(), player.getWin());
         }
     }
 
-    private void attemptsOver(Player player) {
+    private void printAttemptsEnded(Player player) {
         if (player.getAttempt() == MAX_ATTEMPTS) {
-            print(ENDED_ATTEMPTS_MSG, player);
+            System.out.printf(GuessNumberUtil.ENDED_ATTEMPTS_MSG, player);
         }
     }
 
-    private void printAllAnswer(Player player) {
-        print(ALL_NUMBERS_MSG, player);
-        int[] numbers = player.getNumbers();
-        for (int number : numbers) {
-            print("%d ", number);
+    private void printAllAnswer(Player[] players) {
+        for (Player player : players) {
+            System.out.printf(GuessNumberUtil.ALL_NUMBERS_MSG, player);
+            int[] numbers = player.getNumbers();
+            for (int number : numbers) {
+                System.out.printf("%d ", number);
+            }
+            System.out.println(" ");
         }
-        print(" ");
     }
 
-    private void print(String msg) {
-        System.out.println(msg);
-    }
-
-    private void print(String msg, Player player) {
-        System.out.printf(msg, player.getName());
-    }
-
-    private void printWin(String msg, Player player) {
-        System.out.printf(msg, player.getName(), player.getWin());
-    }
-
-    private void print(String msg, int number) {
-        System.out.printf(msg, number);
+    private void clear(Player[] players) {
+        for (Player player : players) {
+            player.clear();
+        }
     }
 }

@@ -2,12 +2,10 @@ package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
 
-import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.COUNT_ATTEMPTS;
-
 public class Player {
 
     private final String name;
-    private final int[] numbers = new int[COUNT_ATTEMPTS];
+    private final int[] numbers = new int[GuessNumberUtil.MAX_ATTEMPTS];
     private int attempt;
     private int win;
 
@@ -31,16 +29,16 @@ public class Player {
         return win;
     }
 
-    public void incrementAndGetWin() {
+    public void incrementWin() {
        ++win;
     }
 
     public boolean addNumber(int number) {
-        if (number > 0 && number < 101) {
+        if (number > 0 && number < GuessNumberUtil.MAX_NUMBER) {
             numbers[attempt++] = number;
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
     public int getLastNumber() {
@@ -49,5 +47,6 @@ public class Player {
 
     public void clear() {
         Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 }
