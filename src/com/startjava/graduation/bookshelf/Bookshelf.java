@@ -42,10 +42,10 @@ public class Bookshelf {
     public boolean find(String name) {
         for (int i = 0; i < countBooks; i++) {
             if (books[i].getName().equals(name)) {
-                return false;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public int countFreeShelve() {
@@ -59,7 +59,8 @@ public class Bookshelf {
 
     public void printShelf(Book[] books) {
         int length = longestInformation(books);
-        System.out.printf("\n  There are %d books in the closet, %d free shelves\n", getCountBooks(), countFreeShelve());
+        System.out.printf("\n  There are %d books in the closet, %d free shelves\n",
+                getCountBooks(), countFreeShelve());
         for (Book book : books) {
             System.out.println("|" + "-".repeat(length) + "|");
             System.out.print("|");
