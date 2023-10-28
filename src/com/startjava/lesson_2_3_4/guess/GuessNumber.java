@@ -31,10 +31,12 @@ public class GuessNumber {
             while (answerNumber != guessNumber && hasAttempts(players)) {
                 for (Player player : players) {
                     answerNumber = inputAnswer(player);
-                    if (isGuessed(answerNumber, guessNumber, player)) {
+                    if (isGuessed(guessNumber, player)) {
                         break;
                     }
-                    printAttemptsEnded(player);
+                    if (isAttemptsEnded(player)) {
+                        break;
+                    }
                 }
             }
             round++;
@@ -72,8 +74,8 @@ public class GuessNumber {
         return number;
     }
 
-    private boolean isGuessed(int answerNumber, int guessNumber, Player player) {
-        answerNumber = player.getLastNumber();
+    private boolean isGuessed(int guessNumber, Player player) {
+        int answerNumber = player.getLastNumber();
         if (answerNumber == guessNumber) {
             player.incrementScore();
             printWinnerInfo(guessNumber, player);
@@ -98,10 +100,11 @@ public class GuessNumber {
         }
     }
 
-    private void printAttemptsEnded(Player player) {
+    private boolean isAttemptsEnded(Player player) {
         if (player.getAttempt() == MAX_ATTEMPTS) {
             MESSAGE.printEndedAttemptsMsg(player);
         }
+        return player.getAttempt() == MAX_ATTEMPTS;
     }
 
     private void printAllAnswer(Player[] players) {

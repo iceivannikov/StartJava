@@ -31,7 +31,7 @@ class Message {
     }
 
     public void printContinuationOrEndMsg() {
-        System.out.println(messagesGuessNumberTest[1]);
+        System.out.print(messagesGuessNumberTest[1]);
     }
 
     public void printNamePlayerMsg(int index) {
