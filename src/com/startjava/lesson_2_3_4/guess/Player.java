@@ -2,14 +2,10 @@ package com.startjava.lesson_2_3_4.guess;
 
 import java.util.Arrays;
 
-import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.MAX_ATTEMPTS;
-import static com.startjava.lesson_2_3_4.guess.GuessNumberUtil.MAX_NUMBER;
-
 public class Player {
 
-    private static final int ZERO = 0;
     private final String name;
-    private final int[] numbers = new int[MAX_ATTEMPTS];
+    private final int[] numbers = new int[GuessNumberUtil.MAX_ATTEMPTS];
     private int attempt;
     private int score;
 
@@ -25,6 +21,18 @@ public class Player {
         return Arrays.copyOf(numbers, attempt);
     }
 
+    public boolean addNumber(int number) {
+        if (number > 0 && number < GuessNumberUtil.MAX_NUMBER) {
+            numbers[attempt++] = number;
+            return true;
+        }
+        return false;
+    }
+
+    public int getLastNumber() {
+        return numbers[attempt - 1];
+    }
+
     public int getAttempt() {
         return attempt;
     }
@@ -34,28 +42,11 @@ public class Player {
     }
 
     public void incrementScore() {
-       ++score;
-    }
-
-    public boolean addNumber(int number) {
-        if (number > ZERO && number < MAX_NUMBER) {
-            numbers[attempt++] = number;
-            return false;
-        }
-        return true;
-    }
-
-    public int getLastNumber() {
-        return numbers[attempt - 1];
+        ++score;
     }
 
     public void clear() {
-        Arrays.fill(numbers, ZERO, attempt, ZERO);
-        attempt = ZERO;
-    }
-
-    @Override
-    public String toString() {
-        return name;
+        Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 }
