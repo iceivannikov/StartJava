@@ -22,9 +22,7 @@ public class GuessNumber {
         castLots();
         while (round < TOTAL_ROUND) {
             int guessNumber = random.nextInt(MIN_NUMBER, MAX_NUMBER);
-            Message.printNumberRound(round);
-            Message.printComputerGuessedNumberMsg();
-            Message.printAnswerProcedureMsg();
+            Message.printStartRoundMsg(round);
             int answerNumber = 0;
             while (answerNumber != guessNumber && hasAttempts()) {
                 for (Player player : players) {
@@ -42,7 +40,7 @@ public class GuessNumber {
     }
 
     private void castLots() {
-        for (int i = players.length - 1; i > 1; i--) {
+        for (int i = TOTAL_PLAYERS - 1; i > 1; i--) {
             int index = (int) (Math.random() * (i + 1));
             Player swap = players[index];
             players[index] = players[i];
@@ -51,15 +49,14 @@ public class GuessNumber {
     }
 
     private boolean hasAttempts() {
-        return players[players.length - 1].getAttempt() != MAX_ATTEMPTS;
+        return players[TOTAL_PLAYERS - 1].getAttempt() < MAX_ATTEMPTS;
     }
 
     private int inputAnswer(Player player) {
         Message.printInputNumberMsg(player.getName());
         int number = sc.nextInt();
         while (!player.addNumber(number)) {
-            Message.printRangeNumbersMsg();
-            Message.printTryAgainMsg();
+            Message.printInvalidInputMsg();
             Message.printInputNumberMsg(player.getName());
             number = sc.nextInt();
         }
@@ -78,9 +75,7 @@ public class GuessNumber {
     }
 
     private void printWinnerInfo(int guessNumber, Player player) {
-        Message.printPlayerNameWinMsg(round, player.getName());
-        Message.printAttemptsMsg(guessNumber, player);
-        Message.printRoundsRemaining(round);
+        Message.printWinnerInfoMsg(guessNumber, round, player);
         for (Player p : players) {
             Message.printTotalWinsMsg(p);
         }

@@ -41,15 +41,9 @@ class Message {
         System.out.printf(messagesGuessNumberTest[2], index);
     }
 
-    public static void printNumberRound(int round) {
+    public static void printStartRoundMsg(int round) {
         System.out.printf(messageGuessNumber[0], round);
-    }
-
-    public static void printComputerGuessedNumberMsg() {
         System.out.println(messageGuessNumber[1]);
-    }
-
-    public static void printAnswerProcedureMsg() {
         System.out.println(messageGuessNumber[2]);
     }
 
@@ -57,16 +51,9 @@ class Message {
         System.out.printf(messageGuessNumber[3], name);
     }
 
-    public static void printRangeNumbersMsg() {
+    public static void printInvalidInputMsg() {
         System.out.println(messageGuessNumber[4]);
-    }
-
-    public static void printTryAgainMsg() {
         System.out.println(messageGuessNumber[5]);
-    }
-
-    public static void printAttemptsMsg(int guessNumber, Player player) {
-        System.out.printf(messageGuessNumber[6], player.getName(), guessNumber, player.getAttempt());
     }
 
     public static void printNumberGreaterOrLessMsg(int answerNumber, int guessNumber) {
@@ -75,16 +62,14 @@ class Message {
         System.out.printf(messageGuessNumber[7], answerNumber, (answerNumber > guessNumber) ? greater : less);
     }
 
-    public static void printPlayerNameWinMsg(int round, String name) {
-        System.out.printf(messageGuessNumber[8], round, name);
+    public static void printWinnerInfoMsg(int guessNumber, int round, Player player) {
+        System.out.printf(messageGuessNumber[8], round, player.getName());
+        System.out.printf(messageGuessNumber[6], player.getName(), guessNumber, player.getAttempt());
+        System.out.printf(messageGuessNumber[10], (TOTAL_ROUND - 1), (TOTAL_ROUND - 1 - round));
     }
 
     public static void printTotalWinsMsg(Player player) {
         System.out.printf(messageGuessNumber[9], player.getName(), player.getScore());
-    }
-
-    public static void printRoundsRemaining(int round) {
-        System.out.printf(messageGuessNumber[10], (TOTAL_ROUND - 1), (TOTAL_ROUND - 1 - round));
     }
 
     public static void printEndedAttemptsMsg(String name) {
