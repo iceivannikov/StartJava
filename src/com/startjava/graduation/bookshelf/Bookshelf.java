@@ -18,16 +18,6 @@ public class Bookshelf {
         books[countBooks++] = book;
     }
 
-    public Book getBook(String name) {
-        Book result = null;
-        for (int i = 0; i < countBooks; i++) {
-            if (books[i].getName().equals(name)) {
-                result = books[i];
-            }
-        }
-        return result;
-    }
-
     public void delete(String name) { //TODO Проверить правильность удаления
         for (int i = 0; i < countBooks; i++) {
             if (books[i].getName().equals(name)) {
@@ -40,16 +30,21 @@ public class Bookshelf {
     }
 
     public boolean find(String name) {
+        boolean isPresent = false;
         for (int i = 0; i < countBooks; i++) {
             if (books[i].getName().equals(name)) {
-                return true;
+                isPresent = books[i].getName().equals(name);
             }
         }
-        return false;
+        return isPresent;
     }
 
-    public int countFreeShelve() {
+    public int getNumberFreePlacesOnShelf() {
         return books.length - countBooks;
+    }
+
+    public int getNumberBooksOnShelf() {
+        return books.length - getNumberFreePlacesOnShelf();
     }
 
     public void clear() {
@@ -60,7 +55,7 @@ public class Bookshelf {
     public void printShelf(Book[] books) {
         int length = longestInformation(books);
         System.out.printf("\n  There are %d books in the closet, %d free shelves\n",
-                getCountBooks(), countFreeShelve());
+                getCountBooks(), getNumberFreePlacesOnShelf());
         for (Book book : books) {
             System.out.println("|" + "-".repeat(length) + "|");
             System.out.print("|");
