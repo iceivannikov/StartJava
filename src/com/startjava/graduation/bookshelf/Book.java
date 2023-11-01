@@ -11,19 +11,11 @@ public class Book {
         this.name = name;
         this.author = author;
         this.yearOfPublishing = yearOfPublishing;
-        this.informationLength = author.length() + name.length() + 8;
-    }
-
-    public String getAuthor() {
-        return author;
+        this.informationLength = toString().length();
     }
 
     public String getName() {
         return name;
-    }
-
-    public int getYearOfPublishing() {
-        return yearOfPublishing;
     }
 
     public int getInformationLength() {
