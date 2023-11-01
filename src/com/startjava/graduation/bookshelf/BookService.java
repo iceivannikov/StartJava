@@ -5,9 +5,9 @@ public class BookService {
     private final Bookshelf bookshelf;
     private final View view;
 
-    public BookService(Bookshelf bookshelf, View view) {
+    public BookService(Bookshelf bookshelf) {
         this.bookshelf = bookshelf;
-        this.view = view;
+        view = new View();
     }
 
     public String printMenu(Bookshelf bookshelf) {
@@ -18,9 +18,23 @@ public class BookService {
         return view.enterCommand();
     }
 
+    public String startProcess(String command) {
+        String option = "";
+        switch (command) {
+            case "save", "1" -> save();
+            case "delete", "2" -> delete();
+            case "find", "3" -> find();
+            case "free places", "4" -> printFreePlace();
+            case "count books", "5" -> printCountBook();
+            case "clear", "6" -> clear();
+            case "quit", "7" -> option = quit(option);
+        }
+        return option;
+    }
+
     public void save() {
         Book book = view.enterBookData();
-        if (!bookshelf.find(book.getName())) {
+        if (bookshelf.find(book.getName()) == null) {
             bookshelf.add(book);
         } else {
             view.printBookExistsMsg(book.getName());
@@ -29,7 +43,7 @@ public class BookService {
 
     public void delete() {
         String name = view.enterBookName();
-        if (bookshelf.find(name)) {
+        if (bookshelf.find(name) != null) {
             bookshelf.delete(name);
             view.printBookDeletedMsg(name);
         } else {
@@ -39,7 +53,7 @@ public class BookService {
 
     public void find() {
         String name = view.enterBookName();
-        if (bookshelf.find(name)) {
+        if (bookshelf.find(name) != null) {
             view.printBookExistsMsg(name);
         } else {
             view.printNoBookMsg(name);
@@ -47,7 +61,7 @@ public class BookService {
     }
 
     public void printFreePlace() {
-        view.printFreePlace(bookshelf.getNumberFreePlacesOnShelf());
+        view.printFreePlace(bookshelf.getNumberFreeShelfs());
     }
 
     public void printCountBook() {

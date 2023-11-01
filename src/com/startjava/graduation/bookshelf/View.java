@@ -107,7 +107,7 @@ public class View {
 
     public String quit(String quit) {
         while (!quit.equals("yes")) {
-            System.out.print("Вы уверены, что хотите выйти? [yes/no]: ");
+            System.out.print("Are you sure you want to go out? [yes/no]: ");
             quit = console.nextLine();
             if (quit.equals("no")) {
                 break;
@@ -122,7 +122,7 @@ public class View {
         Book[] books = bookshelf.getBooks();
         int length = longestInformation(books);
         System.out.printf("\n  There are %d books in the closet, %d free shelves\n",
-                bookshelf.getCountBooks(), bookshelf.getNumberFreePlacesOnShelf());
+                bookshelf.getCountBooks(), bookshelf.getNumberFreeShelfs());
         for (Book book : books) {
             System.out.println("|" + "-".repeat(length) + "|");
             System.out.print("|");

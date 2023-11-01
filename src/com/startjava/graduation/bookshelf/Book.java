@@ -18,6 +18,14 @@ public class Book {
         return name;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getYearOfPublishing() {
+        return yearOfPublishing;
+    }
+
     public int getInformationLength() {
         return informationLength;
     }

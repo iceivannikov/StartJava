@@ -5,8 +5,8 @@ import java.util.Arrays;
 public class Bookshelf {
 
     private static final int TOTAL_SHELF = 10;
-    private int countBooks;
     private final Book[] books = new Book[TOTAL_SHELF];
+    private int countBooks;
 
     public int getCountBooks() {
         return countBooks;
@@ -23,25 +23,26 @@ public class Bookshelf {
     public void delete(String name) {
         for (int i = 0; i < countBooks; i++) {
             if (books[i].getName().equals(name)) {
-                System.arraycopy(books, i + 1, books, i, books.length - 1 - i);
-                books[books.length - 1] = null;
+                System.arraycopy(books, i + 1, books, i, countBooks - 1);
+                books[countBooks - 1] = null;
                 countBooks--;
+                break;
             }
         }
     }
 
-    public boolean find(String name) {
-        boolean isPresent = false;
+    public Book find(String name) {
+        Book book = null;
         for (int i = 0; i < countBooks; i++) {
             if (books[i].getName().equals(name)) {
-                    isPresent = true;
-                    break;
+                book = new Book(books[i].getName(), books[i].getAuthor(), books[i].getYearOfPublishing());
+                break;
             }
         }
-        return isPresent;
+        return book;
     }
 
-    public int getNumberFreePlacesOnShelf() {
+    public int getNumberFreeShelfs() {
         return books.length - countBooks;
     }
 
